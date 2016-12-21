@@ -16,6 +16,7 @@ namespace UnitTestLoginSite
         [TestMethod]
         public void MustPassWhenPasswordIsCorrect()
         {
+            //zmiana jakas
             string nick = "Admin";
             string pass = "admin";
             PassField passField = new PassField();
