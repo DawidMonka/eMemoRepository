@@ -1,0 +1,116 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="eMemo.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - My ASP.NET Application</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Butterfly+Kids" rel="stylesheet">
+
+
+
+</head>
+<body>
+    <div class="">
+                    <asp:Image id="Image1" runat="server"
+                    AlternateText="Image text"
+                    ImageUrl="Images/logo2.gif"/>       
+     </div>
+
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="respond" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+        
+
+
+        <asp:LoginView ID="LoginView1" runat="server">
+            <RoleGroups>
+                <asp:RoleGroup Roles="Admin">
+                </asp:RoleGroup>
+            </RoleGroups>
+        </asp:LoginView>
+        
+
+
+        <div class="navbar navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>  
+                    </button>
+                    <!--<a class="navbar-brand" runat="server" href="~/">Application name</a>-->
+                </div>
+                <div class="navbar-collapse collapse">
+                    
+                    <ul class="nav navbar-nav">
+                        <li><a runat="server" href="~/Home">STRONA GŁÓWNA</a></li>  
+                        <li><a runat="server" href="~/Gra">GRA</a></li>
+                        <li><a id="ranking" visible="false" runat="server" href="~/Wyniki">RANKING</a></li>
+                        <li><a id="mojeWyniki" visible="false" runat="server" href="~/MojeWyniki">MOJE WYNIKI</a></li>
+                        <li><a id="mojeDane" visible="false" runat="server" href="~/MojeDane">MOJE DANE</a></li>
+                    </ul>
+                    
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a id="rejestracja" visible="true" runat="server" href="~/Account/Register">REJESTRACJA</a></li>
+                                <li><a id="logowanie" visible="true" runat="server" href="~/Account/Login">LOGOWANIE</a></li>
+<!--                                <asp:button id="wylogujBtn" visible="false" runat="server" OnClick="LoggOut_Click" style="display:none"></asp:button> -->
+<!--                                <li id="wylogujLi" onclick="logout();"><span class="ondrop">WYLOGUJ</span></li> -->
+
+                                <li id="wyloguj">
+                                <asp:LinkButton id="wylogujLinkButton" runat="server" Visible="false"
+                                    OnClick="LoggOut_Click" 
+                                    Text="WYLOGUJ" />
+                                 </li>
+                                <!--<li><a id="wyloguj" visible="false" runat="server" OnClick="LoggOut_Click" href="~/Home" >WYLOGUJ</a></li>-->
+                            </ul>
+
+                            <ul class="nav navbar-nav navbar-right">
+                                <!--%<li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>-->
+                                <li>
+                              <!--      <asp:LoginStatus id="logOff" runat="server" LogoutAction="Redirect" LogoutText="WYLOGUJ" LogoutPageUrl="~/Home" OnLoggingOut="Unnamed_LoggingOut" />-->
+                                </li>
+                            </ul>
+
+                </div>
+            </div>
+        </div>
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+            <footer>
+                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+            </footer>
+        </div>
+    </form>
+</body>
+</html>
