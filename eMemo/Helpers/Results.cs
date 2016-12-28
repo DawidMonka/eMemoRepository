@@ -56,7 +56,10 @@ namespace MemoGameSite.Helpers
             string cmdtText = "SELECT gracz, dataRozgrywa, lPkt, czasTrwania, lRuchow  FROM rozgrywa WHERE gracz='" + currentNick + "' order by dataRozgrywa desc limit 10";
             return getDataSet(cmdtText);
         }
-
+        /// <summary>
+        /// metoda zwraca zbiór danych dla użytkownika aktualnie zalogowanego, zbiór uporządkowany rosnąco po czasieTrwania (w trybie 'na czas')
+        /// </summary>
+        /// <returns></returns>
         public DataSet getResultsByTimeByNick()
         {
             //string currentNick = MySession.Current.LoginNick;
@@ -64,7 +67,10 @@ namespace MemoGameSite.Helpers
             return getDataSet(cmdtText);
 
         }
-
+        /// <summary>
+        /// metoda zwraca zbiór danych dla użytkownika aktualnie zalogowanego, zbiór uporządkowany malejąco po lPkt (liczbie punktów uzyskanych przez gracza w trybie 'na punkty')
+        /// </summary>
+        /// <returns></returns>
         public DataSet getResultsByPointsByNick()
         {
             string cmdtText = "SELECT gracz, dataRozgrywa, lPkt, czasTrwania, lRuchow  FROM rozgrywa where nrPlanszy =" + wielkosc + " and trybGry = 'na punkty' and gracz='" + currentNick + "' order by lPkt desc limit 10";
