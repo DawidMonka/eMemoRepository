@@ -17,15 +17,15 @@ namespace MemoGameSite.Helpers
     {
         private string connectionName;
         private MySqlConnection connection;
-        private const string server = "localhost";
-        private const string database = "memogamedatabase";
-        private const string uid = "root";
-        private const string password = "Demby88!";
+        //private const string server = "localhost";
+        //private const string database = "memogamedatabase";
+        //private const string uid = "root";
+        //private const string password = "******";
 
-        //private const string server = "mysql3.gear.host";
-        //private const string database = "ememodbmysql";
-        //private const string uid = "ememodbmysql";
-        //private const string password = "eMemo!";
+        private const string server = "mysql3.gear.host";
+        private const string database = "ememodbmysql";
+        private const string uid = "ememodbmysql";
+        private const string password = "eMemo!";
 
         public MySqlConnection Connection
         {
@@ -35,10 +35,15 @@ namespace MemoGameSite.Helpers
 
         public DataBaseConnection()
         {
-            connectionName = "SERVER=" + server + ";" + "DATABASE=" +
-                             database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
+            //connectionName = "SERVER=" + server + ";" + "DATABASE=" +
+                             //database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
 
-            connection = new MySqlConnection(connectionName);
+            //SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionStringNameFromWebConfig"].ConnectionString);
+            
+
+            //connection = new MySqlConnection(connectionName);
+
+            connection = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnectionString"].ConnectionString);
         }
 
         public string ConnectionName
