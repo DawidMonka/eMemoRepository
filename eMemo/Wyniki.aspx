@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8">
 
-             <h2>Ranking</h2>
+            <%-- <h2>Ranking</h2>--%>
             
             <hr/>
             <div class="row">
