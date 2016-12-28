@@ -18,9 +18,13 @@ namespace MemoGameSite.Helpers
         private string connectionName;
         private MySqlConnection connection;
         private const string server = "localhost";
-        private const string database = "memogamedatabase";
+       // private const string database = "memogamedatabase";
         private const string uid = "root";
-        private const string password = "Demby88!";
+       // private const string password = "Demby88!";
+
+        //localhost u agnieszki
+        private const string database = "ememo";
+        private const string password = "filipek";
 
         //private const string server = "mysql3.gear.host";
         //private const string database = "ememodbmysql";
