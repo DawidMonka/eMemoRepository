@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Gra" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Gra.aspx.cs" Inherits="eMemo.Gra" %>
+﻿<%@ Page Title="Gra" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Demo.aspx.cs" Inherits="eMemo.Gra" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h2><%: Title %></h2>

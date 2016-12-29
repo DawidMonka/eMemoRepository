@@ -23,7 +23,8 @@
         }
         else
         {
-            Response.Write("Nie ma takiego użytkownika");
+            //Response.Write("Nie ma takiego użytkownika");
+            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Niepoprawny nick użytkownika.');", true);
         }
     }
 
@@ -34,11 +35,13 @@
             eMemo.Helpers.MySession.Current.LoginNick = nick;
             eMemo.Helpers.MySession.Current.CreateNewPersonalData();
             
-            Response.Write("Hasło jest prawidłowe");
+            //Response.Write("Hasło jest prawidłowe");
+            //ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Hasło jest prawidłowe');", true);
 
             if (nickField.isAdminNick(nick))
             {
-                Response.Redirect("~Account/AdminSite.aspx");
+                //Response.Redirect("~Account/AdminSite.aspx");
+                Response.Redirect("~/Home.aspx");
             }
             else
             {
@@ -48,7 +51,8 @@
         }
         else
         {
-            Response.Write("Hasło jest nieprawidłowe");
+            //Response.Write("Hasło jest nieprawidłowe");
+            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Niepoprawne hasło użytkownika.');", true);
         }
     }
 

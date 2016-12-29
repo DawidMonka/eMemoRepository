@@ -16,7 +16,10 @@
 
         if (!nickField.isEmpty(nick.Text) && nickField.checkIfNickInDataBase(nick.Text))
         {
-            Response.Write("Użytkownik o takim nicku jest już zarejestrowany");
+            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Rejestracja nie powiodła się. "
+                + " Użytkownik o takim nicku jest już zarejestrowany.');", true);
+            nick.Text = String.Empty;
+            //Response.Write("Użytkownik o takim nicku jest już zarejestrowany");
         }
         else
         {
@@ -25,12 +28,15 @@
             if (registrationEntity.noValueIsEmpty())
             {
                 registrationEntity.insertNewUser(dataBaseConnection);
+                //ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Pomyślnie zarejestrowano nowego użytkownika.');", true);
                 Response.Redirect("Login.aspx");
-                Response.Write("Pomyślnie zarejestrowano nowego użytkownika.");
+                //Response.Write("Pomyślnie zarejestrowano nowego użytkownika.");
+                
             }
             else
             {
-                Response.Write("Bład rejestracji użytkownika. Spróbuj jeszcze raz.");
+                //Response.Write("Bład rejestracji użytkownika. Spróbuj jeszcze raz.");
+                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Bład rejestracji użytkownika. Spróbuj jeszcze raz.');", true);
             }
         }
 
@@ -42,7 +48,13 @@
         registrationEntity.Pass = pass.Text;
         registrationEntity.Name = name.Text;
         registrationEntity.Surname = surname.Text;
-        registrationEntity.BirthDate = datepicker.Text;
+        
+        if (datepicker.Text == String.Empty)
+        {
+            registrationEntity.BirthDate = null;
+        }
+        else
+            registrationEntity.BirthDate = datepicker.Text;
 
         if (male.Checked)
             registrationEntity.Sex = "M";
@@ -65,7 +77,7 @@
     <div class="form-horizontal">
         <hr />
         <div class="form-group">
-            <asp:Label runat="server" AssociatedControlID="nick" CssClass="col-md-2 control-label">Nick:</asp:Label>
+            <asp:Label runat="server" AssociatedControlID="nick" CssClass="col-md-2 control-label">*Nick:</asp:Label>
             <div class="col-md-10">
                 <asp:TextBox ID="nick" runat="server" CssClass="form-control"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="nick" 
@@ -73,7 +85,7 @@
             </div>
         </div>
         <div class="form-group">
-            <asp:Label runat="server" AssociatedControlID="pass" CssClass="col-md-2 control-label">Hasło:</asp:Label>
+            <asp:Label runat="server" AssociatedControlID="pass" CssClass="col-md-2 control-label">*Hasło:</asp:Label>
             <div class="col-md-10">
                 <asp:TextBox ID="pass" runat="server" TextMode="Password" CssClass="form-control" ></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="pass"
@@ -81,7 +93,7 @@
             </div>
         </div>
         <div class="form-group">
-            <asp:Label runat="server" AssociatedControlID="conf" CssClass="col-md-2 control-label">Potwierdź hasło:</asp:Label>
+            <asp:Label runat="server" AssociatedControlID="conf" CssClass="col-md-2 control-label">*Potwierdź hasło:</asp:Label>
             <div class="col-md-10">
                  <asp:TextBox ID="conf" runat="server" TextMode="Password" CssClass="form-control"></asp:TextBox>
                  <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="conf" 
@@ -137,8 +149,9 @@
                                 <asp:ListItem>Przemyśl</asp:ListItem>
                                 <asp:ListItem>Warszawa</asp:ListItem>
                                 <asp:ListItem>Tarnów</asp:ListItem>
-                                <asp:ListItem Selected="True">Wrocław</asp:ListItem>
+                                <asp:ListItem>Wrocław</asp:ListItem>
                                 <asp:ListItem>Inne</asp:ListItem>
+                                <asp:ListItem Selected="True"></asp:ListItem>
                             </asp:DropDownList>
                         </ContentTemplate>
                     </asp:UpdatePanel>
@@ -148,6 +161,8 @@
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <asp:Button ID="Submit" runat="server" OnClick="Submit_Click" Text="Rejestruj" CssClass="btn btn-default" align ="left"/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:Label ID="Label1" runat="server" Text="* wymagane pole"></asp:Label>
             </div>
         </div>
     </div>
