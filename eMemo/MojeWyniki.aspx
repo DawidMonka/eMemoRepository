@@ -1,12 +1,11 @@
-﻿<%@ Page Title="Wyniki" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MojeWyniki.aspx.cs" Inherits="eMemo.MojeWyniki" %>
+﻿<%@ Page Title="Moje wyniki" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MojeWyniki.aspx.cs" Inherits="eMemo.MojeWyniki" %>
 
 
     <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h2><%: Title %></h2>
-    <div class="row">
-        <div class="col-md-8">
-            
-            <hr/>
+
+    <div class ="container-fluid" > 
+   
             <div class="row">
                
                 <div class="col-md-4">
@@ -40,10 +39,12 @@
                 <asp:Button ID="btnApply" runat="server" Text="Zatwierdź" onclick="btnApply_Click"  class="btn btn-default" />
             </div>
         </div>
+<br />
+<br /> 
+<br />
 
+ <div class="row" >
 
-<div>
-     <hr/>
             <asp:GridView ID="gridview1" runat="server" UseAccessibleHeader="true"
             CssClass="table table-hover table-striped" GridLines="None" 
             AutoGenerateColumns="False">
@@ -54,7 +55,7 @@
                 </ItemTemplate>
                 </asp:TemplateField>
                 <asp:BoundField DataField="gracz" HeaderText="gracz"/>
-                <asp:BoundField DataField="dataRozgrywa" HeaderText="data" />
+                <asp:BoundField DataField="dataRozgrywa" HeaderText="data" DataFormatString="{0:d}" />
                 <asp:BoundField DataField="lPkt" HeaderText="liczba punktow" />
                 <asp:BoundField DataField="czasTrwania" HeaderText="czas" />
                 <asp:BoundField DataField="lRuchow" HeaderText="liczba ruchow" />
@@ -65,7 +66,7 @@
             </asp:GridView>
 
       </div>      
-        </div>
+        
 
    </div>      
 </asp:Content>

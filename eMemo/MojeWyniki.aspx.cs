@@ -19,7 +19,7 @@ namespace eMemo
             Results results = new Results(wielkosc);
             DataSet ds = new DataSet();
 
-            ds = results.getResultByNick();
+            ds = results.getResultsByTimeByNick();
 
             gridview1.DataSource = ds;
             gridview1.DataBind();
