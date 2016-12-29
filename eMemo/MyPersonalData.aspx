@@ -33,14 +33,14 @@
         <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="datepicker" CssClass="col-md-2 control-label" ID="birthLabel">Data urodzenia:</asp:Label>
             <div class="col-md-10">
-               <asp:TextBox ID="datepicker" runat="server" TextMode="Date" CssClass="form-control" ReadOnly="true"></asp:TextBox>
+               <asp:TextBox ID="datepicker" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
             </div>
         </div>
         <div class="form-group">
             <asp:Label runat="server" CssClass="col-md-2 control-label" ID="sexLabel">Płeć:</asp:Label>
             <div class="col-md-10">
-               <asp:RadioButton ID="male" runat="server" Checked="True" CssClass="radio" Text="M" GroupName="sexGroup" ReadOnly="true"/>
-               <asp:RadioButton ID="female" runat="server" CssClass="radio" Text="K" GroupName="sexGroup" ReadOnly="true"/>
+               <asp:RadioButton ID="male" runat="server" Checked="True" CssClass="radio" Text="Mężczyzna" GroupName="sexGroup" ReadOnly="true"/>
+               <asp:RadioButton ID="female" runat="server" CssClass="radio" Text="Kobieta   " GroupName="sexGroup" ReadOnly="true"/>
             </div>
         </div>
          <div class="form-group">

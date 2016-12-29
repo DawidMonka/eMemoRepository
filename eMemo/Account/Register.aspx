@@ -128,8 +128,8 @@
         <div class="form-group">
             <asp:Label runat="server" CssClass="col-md-2 control-label">Płeć:</asp:Label>
             <div class="col-md-10">
-               <asp:RadioButton ID="male" runat="server" Checked="True" CssClass="radio" Text="M" GroupName="sexGroup" />
-               <asp:RadioButton ID="female" runat="server" CssClass="radio" Text="K" GroupName="sexGroup" />
+               <asp:RadioButton ID="male" runat="server" Checked="True" CssClass="radio" Text="Mężczyzna" GroupName="sexGroup" />
+               <asp:RadioButton ID="female" runat="server" CssClass="radio" Text="Kobieta" GroupName="sexGroup" />
             </div>
         </div>
 
