@@ -53,6 +53,7 @@ namespace eMemo.Helpers
             public const string Player = "gracz";
             public const string BoardNo = "nrPlanszy";
             public const string GameMod = "trybGry";
+            public const string MovesNr = "lRuchow";
         }
 
         /// <summary>
@@ -69,9 +70,9 @@ namespace eMemo.Helpers
         /// </summary>
         public class BoardNoValue
         {
-            public const string FourFour = "44";
-            public const string FourFive = "45";
-            public const string FourSix = "46";
+            public const int FourFour = 44;
+            public const int FourFive = 45;
+            public const int FourSix = 46;
         }
 
         /// <summary>
