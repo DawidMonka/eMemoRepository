@@ -9,7 +9,7 @@
 
 
 
-public partial class AdminSite {
+public partial class  AdminSite{
     
     /// <summary>
     /// form1 control.
