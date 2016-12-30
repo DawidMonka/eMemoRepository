@@ -101,12 +101,11 @@ namespace MemoGameSite.Helpers
 
         public bool noValueIsEmpty()
         {
-            return !isValueEmpty(Nick) &&
-                !isValueEmpty(Pass) &&
-                !isValueEmpty(Name) &&
-                !isValueEmpty(Surname) &&
-                !isValueEmpty(Sex) &&
-                !isValueEmpty(City);
+            return !isValueEmpty(Nick) && !isValueEmpty(Pass); 
+            //&& !isValueEmpty(Name) &&   //te wartości nie są wymagane
+                //!isValueEmpty(Surname) &&
+                //!isValueEmpty(Sex) &&
+                //!isValueEmpty(City);
         }
 
         /// <summary>
