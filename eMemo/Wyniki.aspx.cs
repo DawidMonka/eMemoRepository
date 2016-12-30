@@ -29,11 +29,15 @@ namespace eMemo
 
             int wielkosc = Convert.ToInt32(Wielkosc.SelectedItem.Value);
             string tryb = Tryb.SelectedItem.Value;
-
-            Results results = new Results(wielkosc);
+            Results results = new Results();
             DataSet ds = new DataSet();
+            ds = results.getResults(wielkosc,tryb);
 
-            ds = results.getResultsByTime();
+
+            //Results results = new Results(wielkosc);
+            //DataSet ds = new DataSet();
+
+            //ds = results.getResultsByTime();
 
             gridview1.DataSource = ds;
             gridview1.DataBind();
@@ -60,17 +64,18 @@ namespace eMemo
             int wielkosc = Convert.ToInt32(Wielkosc.SelectedItem.Value);
             string tryb = Tryb.SelectedItem.Value;
 
-            Results results = new Results(wielkosc);
-            DataSet ds = new DataSet(); 
+            Results results = new Results();
+            DataSet ds = new DataSet();
+            ds = results.getResults(wielkosc, tryb);
 
-            if (tryb == "na czas")
-            {
-                ds = results.getResultsByTime();    
-            }
-            if(tryb == "na punkty")
-            {
-                ds = results.getResultsByPoints();
-            }
+            //if (tryb == "na czas")
+            //{
+            //    ds = results.getResultsByTime();    
+            //}
+            //if(tryb == "na punkty")
+            //{
+            //    ds = results.getResultsByPoints();
+            //}
 
             gridview1.DataSource = ds;
             gridview1.DataBind();
