@@ -8,90 +8,88 @@ using eMemo.Helpers;
 
 namespace MemoGameSite.Helpers
 {
-    //Klasa obsługująca ranking uzytkownikow
+    //Klasa obsługująca ranking uzytkownikow i moje wyniki
     public class Results
     {
-        private int wielkosc;
-        private string tryb;
+        
         private DataBaseConnection connection;
-        string currentNick;
-
-        public Results(int _wielkosc)
+        
+        public Results()
         {
             connection = new DataBaseConnection();
-            wielkosc = _wielkosc;
-            currentNick = MySession.Current.LoginNick;
+        }
+        /// <summary>
+        /// metoda zwraca zbiór danych o wybranej wielkości planszy i trybie gry
+        /// </summary>
+        /// <param name="wielkosc"></param>
+        /// <param name="tryb"></param>
+        /// <returns></returns>
+        public DataSet getResults(int wielkosc, string tryb)
+        {
+            string order;
+            string sortOrder;
+            if (tryb == DataBaseConstants.GameModeValue.TimeMode)
+            {
+                order = DataBaseConstants.PlaysTable.Time;
+                sortOrder = "asc";
+            }
+            else
+            {
+                order = DataBaseConstants.PlaysTable.Points;
+                sortOrder = "desc";
+            }
+            //string cmdtText = "SELECT gracz, dataRozgrywa, lPkt, czasTrwania, lRuchow  FROM rozgrywa where nrPlanszy =" + wielkosc + " and trybGry =" + tryb + " order by lPkt desc limit 10";
+            string cmdtText = String.Format("SELECT {0}, {1}, {2}, {3}, lRuchow FROM {4} WHERE nrPlanszy = {5} and trybGry = '{6}' order by {7} {8} limit 10",
+               DataBaseConstants.PlaysTable.Player,
+               DataBaseConstants.PlaysTable.Date,
+               DataBaseConstants.PlaysTable.Points,
+               DataBaseConstants.PlaysTable.Time,
+               DataBaseConstants.PlaysTableName,
+               wielkosc,
+               tryb,
+               order,
+               sortOrder);
+            return connection.getDataSetFromDataBase(cmdtText);
         }
 
 
-        /// <summary>
-        /// metoda zwraca zbiór danych, dla których wielkość planszy jest równa zmiennej składowej wielkość, zbiór uporządkowany malejąco po lPkt (liczbie punktów uzyskanych przez gracza w trybie 'na punkty')
-        /// </summary>
-        /// <returns></returns>
-        public DataSet getResultsByPoints()
+       /// <summary>
+       /// metoda zwraca zbiór danych o wybranej wielkości planszy,trybie gry i nicku
+       /// </summary>
+       /// <param name="wielkosc"></param>
+       /// <param name="tryb"></param>
+       /// <param name="nick"></param>
+       /// <returns></returns>
+        public DataSet getResultsByNick(int wielkosc, string tryb, string nick)
         {
-            string cmdtText = "SELECT gracz, dataRozgrywa, lPkt, czasTrwania, lRuchow  FROM rozgrywa where nrPlanszy =" + wielkosc + " and trybGry = 'na punkty' order by lPkt desc limit 10";
-            return getDataSet(cmdtText);
-        }
-
-
-        /// <summary>
-        /// metoda zwraca zbiór danych, dla których wielkość planszy jest równa zmiennej składowej wielkość, zbiór uporządkowany rosnąco po czasieTrwania (w trybie 'na czas')
-        /// </summary>
-        /// <returns></returns>
-        public DataSet getResultsByTime()
-        {
-
-            string cmdtText = "SELECT gracz, dataRozgrywa, lPkt, czasTrwania, lRuchow FROM rozgrywa where nrPlanszy =" + wielkosc + " and trybGry = 'na czas' order by czasTrwania asc limit 10";
-            return getDataSet(cmdtText);
-            
-        }
-        /// <summary>
-        /// metoda zwraca zbiór danych dla użytkownika aktualnie zalogowanego
-        /// </summary>
-        /// <returns></returns>
-        public DataSet getResultByNick()
-        {
+            string order;
+            string sortOrder;
+            if (tryb == DataBaseConstants.GameModeValue.TimeMode)
+            {
+                order = DataBaseConstants.PlaysTable.Time;
+                sortOrder = "asc";
+            }
+            else
+            {
+                order = DataBaseConstants.PlaysTable.Points;
+                sortOrder = "desc";
+            }
             //string currentNick = MySession.Current.LoginNick;
-            string cmdtText = "SELECT gracz, dataRozgrywa, lPkt, czasTrwania, lRuchow  FROM rozgrywa WHERE gracz='" + currentNick + "' order by dataRozgrywa desc limit 10";
-            return getDataSet(cmdtText);
+            string cmdtText = String.Format("SELECT {0}, {1}, {2}, {3}, {4} FROM {5} WHERE {6} = '{7}' and nrPlanszy = {8} and trybGry = '{9}' order by {10} {11} limit 10",
+                DataBaseConstants.PlaysTable.Player,
+                DataBaseConstants.PlaysTable.Date,
+                DataBaseConstants.PlaysTable.Points,
+                DataBaseConstants.PlaysTable.Time,
+                DataBaseConstants.PlaysTable.MovesNr,
+                DataBaseConstants.PlaysTableName,
+                DataBaseConstants.PlaysTable.Player,
+                nick,
+                wielkosc,
+                tryb,
+                order,
+                sortOrder);
+            return connection.getDataSetFromDataBase(cmdtText);
         }
-        /// <summary>
-        /// metoda zwraca zbiór danych dla użytkownika aktualnie zalogowanego, zbiór uporządkowany rosnąco po czasieTrwania (w trybie 'na czas')
-        /// </summary>
-        /// <returns></returns>
-        public DataSet getResultsByTimeByNick()
-        {
-            //string currentNick = MySession.Current.LoginNick;
-            string cmdtText = "SELECT gracz, dataRozgrywa, lPkt, czasTrwania, lRuchow FROM rozgrywa where nrPlanszy =" + wielkosc + " and trybGry = 'na czas' and gracz='" + currentNick + "' order by czasTrwania asc limit 10";
-            return getDataSet(cmdtText);
-
-        }
-        /// <summary>
-        /// metoda zwraca zbiór danych dla użytkownika aktualnie zalogowanego, zbiór uporządkowany malejąco po lPkt (liczbie punktów uzyskanych przez gracza w trybie 'na punkty')
-        /// </summary>
-        /// <returns></returns>
-        public DataSet getResultsByPointsByNick()
-        {
-            string cmdtText = "SELECT gracz, dataRozgrywa, lPkt, czasTrwania, lRuchow  FROM rozgrywa where nrPlanszy =" + wielkosc + " and trybGry = 'na punkty' and gracz='" + currentNick + "' order by lPkt desc limit 10";
-            return getDataSet(cmdtText);
-        }
-        /// <summary>
-        /// metoda pomocnicza zwracająca zbiór danych
-        /// </summary>
-        /// <param name="cmdtText"></param> zapytanie
-        /// <returns></returns>
-        private DataSet getDataSet(string cmdtText)
-        {
-            connection.openConnection();
-            //cmdtText = "SELECT gracz, dataRozgrywa, lPkt, czasTrwania, lRuchow  FROM rozgrywa where nrPlanszy =" + wielkosc + " and trybGry = 'na punkty' order by lPkt desc limit 10";
-            MySqlCommand cmde = new MySqlCommand(cmdtText, connection.Connection);
-            MySqlDataAdapter da = new MySqlDataAdapter(cmde);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            connection.closeConnection();
-
-            return ds;
-        }
+        
     }
 }
