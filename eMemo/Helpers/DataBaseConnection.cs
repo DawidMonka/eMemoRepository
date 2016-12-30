@@ -96,5 +96,17 @@ namespace MemoGameSite.Helpers
 
             return querryPt1 + columnName + querryPt2 + "'" + nick + "'";
         }
+
+        public DataSet getDataSetFromDataBase(string query)
+        {
+            openConnection();
+            MySqlCommand cmde = new MySqlCommand(query, connection);
+            MySqlDataAdapter da = new MySqlDataAdapter(cmde);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            closeConnection();
+
+            return ds;
+        }
     }  
 }
