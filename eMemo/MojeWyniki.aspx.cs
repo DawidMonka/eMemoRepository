@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using MemoGameSite.Helpers;
+using eMemo.Helpers;
 
 namespace eMemo
 {
@@ -16,10 +17,10 @@ namespace eMemo
             int wielkosc = Convert.ToInt32(Wielkosc.SelectedItem.Value);
             string tryb = Tryb.SelectedItem.Value;
 
-            Results results = new Results(wielkosc);
+            Results results = new Results();
             DataSet ds = new DataSet();
 
-            ds = results.getResultsByTimeByNick();
+            ds = results.getResultsByNick(wielkosc,tryb, MySession.Current.LoginNick);
 
             gridview1.DataSource = ds;
             gridview1.DataBind();
@@ -34,27 +35,36 @@ namespace eMemo
         protected void btnApply_Click(Object sender, EventArgs e)
         {
 
-
             int wielkosc = Convert.ToInt32(Wielkosc.SelectedItem.Value);
             string tryb = Tryb.SelectedItem.Value;
 
-            Results results = new Results(wielkosc);
+            Results results = new Results();
             DataSet ds = new DataSet();
 
-            if (tryb == "na czas")
-            {
-                ds = results.getResultsByTimeByNick();
-            }
-            if (tryb == "na punkty")
-            {
-                ds = results.getResultsByPointsByNick();
-            }
+            ds = results.getResultsByNick(wielkosc, tryb, MySession.Current.LoginNick);
 
             gridview1.DataSource = ds;
             gridview1.DataBind();
+            //int wielkosc = Convert.ToInt32(Wielkosc.SelectedItem.Value);
+            //string tryb = Tryb.SelectedItem.Value;
+
+            //Results results = new Results(wielkosc);
+            //DataSet ds = new DataSet();
+
+            //if (tryb == "na czas")
+            //{
+            //    ds = results.getResultsByTimeByNick();
+            //}
+            //if (tryb == "na punkty")
+            //{
+            //    ds = results.getResultsByPointsByNick();
+            //}
+
+            //gridview1.DataSource = ds;
+            //gridview1.DataBind();
 
 
-            
+
 
         }
     }
