@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using MemoGameSite.Helpers;
 using System.Data;
 using MySql.Data.MySqlClient;
+using eMemo.Helpers;
 
 
 namespace eMemo.Account
@@ -17,16 +18,17 @@ namespace eMemo.Account
         
         protected void Page_Load(object sender, EventArgs e)
         {
-            DataBaseConnection connection = new DataBaseConnection();
-            connection.openConnection();
-            string cmdtText = "SELECT nick, dataRej FROM uzytkownik order by nick";
-            MySqlCommand cmde = new MySqlCommand(cmdtText, connection.Connection);
-            MySqlDataAdapter da = new MySqlDataAdapter(cmde);
+            //DataBaseConnection connection = new DataBaseConnection();
+            //connection.openConnection();
+            //string cmdtText = "SELECT nick, dataRej FROM uzytkownik order by nick";
+            //MySqlCommand cmde = new MySqlCommand(cmdtText, connection.Connection);
+            //MySqlDataAdapter da = new MySqlDataAdapter(cmde);
+            //DataSet ds = new DataSet();
+            //da.Fill(ds);
+            //connection.closeConnection();
+            UsersManagement usersmanagement = new UsersManagement();
             DataSet ds = new DataSet();
-            da.Fill(ds);
-            connection.closeConnection();
-
-
+            ds = usersmanagement.getUsers();
             gridview1.DataSource = ds;
             gridview1.DataBind();
 
@@ -41,9 +43,14 @@ namespace eMemo.Account
         public void OnConfirm(object sender, CommandEventArgs e)
         {
             string nick = e.CommandArgument as string;
-            /**
-            Remove nick
-            */
+            
+
+            UsersManagement usersmanagement = new UsersManagement();
+            usersmanagement.deleteUser(nick);
+            DataSet ds = new DataSet();
+            ds = usersmanagement.getUsers();
+            gridview1.DataSource = ds;
+            gridview1.DataBind();
         }
     }
 }

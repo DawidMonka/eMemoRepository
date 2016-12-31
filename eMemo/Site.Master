@@ -73,10 +73,10 @@
                     
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/Home">STRONA GŁÓWNA</a></li>  
-                        <li><a runat="server" href="~/Gra">GRA</a></li>
-                        <li><a id="ranking" visible="false" runat="server" href="~/Wyniki">RANKING</a></li>
-                        <li><a id="mojeWyniki" visible="false" runat="server" href="~/MojeWyniki">MOJE WYNIKI</a></li>
-                        <li><a id="mojeDane" visible="false" runat="server" href="~/MojeDane">MOJE DANE</a></li>
+                        <li><a runat="server" href="~/Demo">DEMO</a></li>
+                        <li><a id="ranking" visible="false" runat="server" href="~/Scores">RANKING</a></li>
+                        <li><a id="mojeWyniki" visible="false" runat="server" href="~/MyScores">MOJE WYNIKI</a></li>
+                        <li><a id="mojeDane" visible="false" runat="server" href="~/MyPersonalData">MOJE DANE</a></li>
                     </ul>
                     
                             <ul class="nav navbar-nav navbar-right">
