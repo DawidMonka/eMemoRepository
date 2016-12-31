@@ -31,6 +31,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+    <DocumentationFile>bin\eMemo.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -321,7 +322,6 @@
     <Compile Include="Demo.aspx.designer.cs">
       <DependentUpon>Demo.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\UsersManagement.cs" />
     <Compile Include="Helpers\DataBaseConnection.cs" />
     <Compile Include="Helpers\DataBaseConstants.cs" />
     <Compile Include="Helpers\MySession.cs" />
@@ -330,6 +330,7 @@
     <Compile Include="Helpers\PersonalData.cs" />
     <Compile Include="Helpers\RegistrationEntity.cs" />
     <Compile Include="Helpers\Results.cs" />
+    <Compile Include="Helpers\UsersManagement.cs" />
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -338,6 +339,10 @@
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="MyPersonalData.aspx.cs">
+      <DependentUpon>MyPersonalData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="MyPersonalData.aspx.designer.cs">
       <DependentUpon>MyPersonalData.aspx</DependentUpon>
     </Compile>
