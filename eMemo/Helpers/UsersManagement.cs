@@ -13,8 +13,8 @@ namespace eMemo.Helpers
     public class UsersManagement
     {
         private DataBaseConnection connection;
-        private const string deleteScoresQuery = "DELETE FROM rozgrywa WHERE gracz = '@nick'";
-        private const string deleteUserQuery = "DELETE FROM uzytkownik WHERE gracz = '@nick'";
+        private const string deleteScoresQuery = "DELETE FROM rozgrywa WHERE gracz = @nick";
+        private const string deleteUserQuery = "DELETE FROM uzytkownik WHERE nick = @nick";
         public UsersManagement()
         {
             connection = new DataBaseConnection();
@@ -44,15 +44,17 @@ namespace eMemo.Helpers
 
                 MySqlCommand deleteCommandForScores = new MySqlCommand(deleteScoresQuery, connection.Connection);
                 MySqlCommand deleteCommandForUser = new MySqlCommand(deleteUserQuery, connection.Connection);
-                deleteCommandForScores.Parameters.AddWithValue(@nick, nick);
-                deleteCommandForUser.Parameters.AddWithValue(@nick, nick);
+                deleteCommandForScores.Parameters.AddWithValue("nick", nick);
+                deleteCommandForUser.Parameters.AddWithValue("nick", nick);
                 deleteCommandForScores.ExecuteNonQuery();
                 deleteCommandForUser.ExecuteNonQuery();
 
                 connection.closeConnection();
                 result = true;
             }
-            catch (OperationCanceledException e) { }
+            catch (OperationCanceledException e) {
+
+            }
 
             return result;
         }
