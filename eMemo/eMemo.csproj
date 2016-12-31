@@ -338,10 +338,6 @@
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="MyPersonalData.aspx.cs">
-      <DependentUpon>MyPersonalData.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="MyPersonalData.aspx.designer.cs">
       <DependentUpon>MyPersonalData.aspx</DependentUpon>
     </Compile>
