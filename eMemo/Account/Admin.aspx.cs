@@ -42,9 +42,7 @@ namespace eMemo.Account
 
         public void OnConfirm(object sender, CommandEventArgs e)
         {
-            string nick = e.CommandArgument as string;
-            
-
+            string nick = e.CommandArgument as string; 
             UsersManagement usersmanagement = new UsersManagement();
             usersmanagement.deleteUser(nick);
             DataSet ds = new DataSet();
