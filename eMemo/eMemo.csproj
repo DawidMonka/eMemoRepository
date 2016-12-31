@@ -330,6 +330,7 @@
     <Compile Include="Helpers\PersonalData.cs" />
     <Compile Include="Helpers\RegistrationEntity.cs" />
     <Compile Include="Helpers\Results.cs" />
+    <Compile Include="Helpers\UsersManagement.cs" />
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -340,6 +341,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="MyPersonalData.aspx.cs">
       <DependentUpon>MyPersonalData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="MyPersonalData.aspx.designer.cs">
       <DependentUpon>MyPersonalData.aspx</DependentUpon>
