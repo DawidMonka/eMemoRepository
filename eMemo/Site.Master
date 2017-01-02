@@ -77,6 +77,7 @@
                         <li><a id="ranking" visible="false" runat="server" href="~/Scores">RANKING</a></li>
                         <li><a id="mojeWyniki" visible="false" runat="server" href="~/MyScores">MOJE WYNIKI</a></li>
                         <li><a id="mojeDane" visible="false" runat="server" href="~/MyPersonalData">MOJE DANE</a></li>
+                        <li><a id="daneUzytkownikow" visible="false" runat="server" href="~/Account/Admin">DANE UŻYTKOWNIKÓW</a></li>
                     </ul>
                     
                             <ul class="nav navbar-nav navbar-right">

@@ -10,7 +10,7 @@
 namespace eMemo {
     
     
-    public partial class MojeDane {
+    public partial class MyPersonalData {
         
         /// <summary>
         /// nickLabel control.

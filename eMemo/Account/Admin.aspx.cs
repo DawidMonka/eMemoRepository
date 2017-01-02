@@ -18,19 +18,25 @@ namespace eMemo.Account
         
         protected void Page_Load(object sender, EventArgs e)
         {
-            //DataBaseConnection connection = new DataBaseConnection();
-            //connection.openConnection();
-            //string cmdtText = "SELECT nick, dataRej FROM uzytkownik order by nick";
-            //MySqlCommand cmde = new MySqlCommand(cmdtText, connection.Connection);
-            //MySqlDataAdapter da = new MySqlDataAdapter(cmde);
-            //DataSet ds = new DataSet();
-            //da.Fill(ds);
-            //connection.closeConnection();
-            UsersManagement usersmanagement = new UsersManagement();
-            DataSet ds = new DataSet();
-            ds = usersmanagement.getUsers();
-            gridview1.DataSource = ds;
-            gridview1.DataBind();
+            //TO DO ten warunek trzeba odkomentować gdy strona Admina będzie już gotowa
+            //if (MySession.Current.LoginNick.Equals(DataBaseConstants.AdminNick))
+            {
+                //DataBaseConnection connection = new DataBaseConnection();
+                //connection.openConnection();
+                //string cmdtText = "SELECT nick, dataRej FROM uzytkownik order by nick";
+                //MySqlCommand cmde = new MySqlCommand(cmdtText, connection.Connection);
+                //MySqlDataAdapter da = new MySqlDataAdapter(cmde);
+                //DataSet ds = new DataSet();
+                //da.Fill(ds);
+                //connection.closeConnection();
+                UsersManagement usersmanagement = new UsersManagement();
+                DataSet ds = new DataSet();
+                ds = usersmanagement.getUsers();
+                gridview1.DataSource = ds;
+                gridview1.DataBind();
+            }
+            //else
+                //Response.Redirect("~/Home.aspx");
 
         }
         

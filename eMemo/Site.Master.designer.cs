@@ -58,6 +58,15 @@ namespace eMemo {
         protected global::System.Web.UI.HtmlControls.HtmlAnchor mojeDane;
         
         /// <summary>
+        /// daneUzytkownikow control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor daneUzytkownikow;
+        
+        /// <summary>
         /// rejestracja control.
         /// </summary>
         /// <remarks>

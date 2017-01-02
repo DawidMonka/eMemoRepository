@@ -40,8 +40,8 @@
 
             if (nickField.isAdminNick(nick))
             {
-                //Response.Redirect("~Account/AdminSite.aspx");
-                Response.Redirect("~/Home.aspx");
+                Response.Redirect("~/Account/Admin.aspx");
+                //Response.Redirect("~/Home.aspx");
             }
             else
             {

@@ -11,12 +11,17 @@ namespace eMemo.Helpers
     public static class DataBaseConstants
     {
         /// <summary>
+        /// Nick Admina w bazie danych
+        /// </summary>
+        public static string AdminNick = "Admin";
+
+        /// <summary>
         /// Nazwy tabel
         /// </summary>
         public static string UserTableName = "Uzytkownik";
         public static string GameTableName = "Gra";
         public static string PlaysTableName = "Rozgrywa";
-        
+
         /// <summary>
         /// Nazwy kolumn w tabeli Uzytkownik
         /// </summary>

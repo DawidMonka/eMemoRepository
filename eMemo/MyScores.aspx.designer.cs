@@ -10,7 +10,7 @@
 namespace eMemo {
     
     
-    public partial class MojeWyniki {
+    public partial class MyScores {
         
         /// <summary>
         /// Wielkosc control.

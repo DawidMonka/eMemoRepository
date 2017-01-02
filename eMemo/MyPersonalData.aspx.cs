@@ -11,20 +11,26 @@ using eMemo.Helpers;
 
 namespace eMemo
 {
-    public partial class MojeDane : System.Web.UI.Page
+    public partial class MyPersonalData : Page
     {
         private PersonalData personalData;
         private const string hiddenPass = "*******";
         
         protected void Page_Load(object sender, EventArgs e)
         {
-            personalData = MySession.Current.PersonalData;
-            
-            if (!Page.IsPostBack)
+            if (MySession.Current.isUserLoggedIn())
             {
-                personalData.getAllDataFromDataBase();
-                displayUserData();
+                personalData = MySession.Current.PersonalData;
+
+                if (!Page.IsPostBack)
+                {
+                    personalData.getAllDataFromDataBase();
+                    displayUserData();
+                }
             }
+            else
+                Response.Redirect("~/Home.aspx");
+
         }
 
         private void displayUserData()

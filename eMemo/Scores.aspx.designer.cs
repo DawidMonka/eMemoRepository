@@ -10,7 +10,7 @@
 namespace eMemo {
     
     
-    public partial class Wyniki {
+    public partial class Scores {
         
         /// <summary>
         /// Wielkosc control.

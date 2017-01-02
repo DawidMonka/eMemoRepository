@@ -1,4 +1,4 @@
-﻿<%@  Page Title="Wyniki" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Scores.aspx.cs" Inherits="eMemo.Wyniki" %>
+﻿<%@  Page Title="Wyniki" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Scores.aspx.cs" Inherits="eMemo.Scores" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 <div class ="container-fluid" > 

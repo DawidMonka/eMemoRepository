@@ -68,15 +68,27 @@ namespace eMemo
         }
 
         protected void Page_Load(object sender, EventArgs e)    
-        
         {
-
+            //gdy użytkonik jest zalogowany
             if (MySession.Current.isUserLoggedIn())
             {
                 //ustawienie widoczności przycisków menu
                 ranking.Visible = true;
                 mojeDane.Visible = true;
                 mojeWyniki.Visible = true;
+                wylogujLinkButton.Visible = true;
+                logowanie.Visible = false;
+                rejestracja.Visible = false;
+            }
+
+            //gdy użytkownik to Administrator
+            if (MySession.Current.LoginNick.Equals(DataBaseConstants.AdminNick))
+            {
+                //ustawienie widoczności przycisków menu
+                ranking.Visible = true;
+                mojeDane.Visible = false;
+                mojeWyniki.Visible = false;
+                daneUzytkownikow.Visible = true;
                 wylogujLinkButton.Visible = true;
                 logowanie.Visible = false;
                 rejestracja.Visible = false;
@@ -94,8 +106,6 @@ namespace eMemo
             wyloguj.Visible = false;
             logowanie.Visible = true;
             rejestracja.Visible = true;
-
-
             //Context.GetOwinContext().Authentication.SignOut();
         }
 
@@ -107,6 +117,7 @@ namespace eMemo
             ranking.Visible = false;
             mojeDane.Visible = false;
             mojeWyniki.Visible = false;
+            daneUzytkownikow.Visible = false;
             wylogujLinkButton.Visible = false;
             logowanie.Visible = true;
             rejestracja.Visible = true;
