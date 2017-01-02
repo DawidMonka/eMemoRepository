@@ -22,16 +22,18 @@
         <div class="col-md-4">
             <h2>Pobierz grę</h2>
             <p>
-               Kliknij, aby pobrać grę na urządzenie mobilne z systemem Android.
+               Kliknij, aby pobrać grę na urządzenie mobilne.
             </p>
             <p>
-                <a class="btn btn-default" >Pobierz &raquo;</a>
+                <asp:Button ID="android" class="btn btn-default" runat="server" Text="Android" OnClick="androidClicked" />
+                <asp:Button ID="windows" class="btn btn-default" runat="server" Text="WinPhone" OnClick="windowsClicked" />
+                <asp:Button ID="mac" class="btn btn-default" runat="server" Text="MacOS" OnClick="macOsCLicked" />
             </p>
 
         </div>
 
              <div class="col-md-4">
-            <h2>Zapoznaj się z regulaminem</h2>
+            <h2>Regulamin</h2>
             <p> 
                Kliknij, aby wyświetlić regulamin serwisu eMemo.
             </p>

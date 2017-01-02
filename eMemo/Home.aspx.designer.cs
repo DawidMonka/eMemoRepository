@@ -31,6 +31,33 @@ namespace eMemo {
         protected global::System.Web.UI.WebControls.Image Image2;
         
         /// <summary>
+        /// android control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button android;
+        
+        /// <summary>
+        /// windows control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button windows;
+        
+        /// <summary>
+        /// mac control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button mac;
+        
+        /// <summary>
         /// TermsSiteButton control.
         /// </summary>
         /// <remarks>

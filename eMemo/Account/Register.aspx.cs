@@ -7,9 +7,9 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
 
-namespace MemoGameSite
+namespace eMemo.Account
 {
-    public partial class RegistrationSite : System.Web.UI.Page
+    public partial class Register : System.Web.UI.Page
     {     
     }
 }
