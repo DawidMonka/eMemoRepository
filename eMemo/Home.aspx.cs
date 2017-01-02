@@ -13,5 +13,10 @@ namespace eMemo
         {
 
         }
+
+        protected void TermsSiteButtonClicked(object sender, EventArgs e)
+        {
+            Response.Redirect("~/TermsSite.aspx");
+        }
     }
 }

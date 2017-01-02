@@ -31,12 +31,12 @@
                 //ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Pomyślnie zarejestrowano nowego użytkownika.');", true);
                 Response.Redirect("Login.aspx");
                 //Response.Write("Pomyślnie zarejestrowano nowego użytkownika.");
-                
+
             }
             else
             {
                 //Response.Write("Bład rejestracji użytkownika. Spróbuj jeszcze raz.");
-                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Bład rejestracji użytkownika. Spróbuj jeszcze raz.');", true);
+                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('W celu zarejestrowania należy wypełnić wszystkie wymagane pola.');", true);
             }
         }
 
@@ -48,7 +48,10 @@
         registrationEntity.Pass = pass.Text;
         registrationEntity.Name = name.Text;
         registrationEntity.Surname = surname.Text;
-        
+
+        if (acceptTerms2.Checked)
+            registrationEntity.AcceptTerms = true;
+
         if (datepicker.Text == String.Empty)
         {
             registrationEntity.BirthDate = null;
@@ -64,7 +67,27 @@
         registrationEntity.City = cityList.SelectedValue;
         registrationEntity.SignDate = DateTime.Now;
     }
-    
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void TermsSiteButtonClicked(object sender, EventArgs e)
+    {
+        //ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('REGULAMIN');", true);
+        Response.Redirect("~/TermsSite.aspx");
+    }
+
+    protected void termsAccepted(object sender, EventArgs e)
+    {
+    }
+
+    protected void CheckBoxRequired_ServerValidate(object sender, ServerValidateEventArgs e)
+    {
+        e.IsValid = acceptTerms2.Checked;
+    }
+
 </script>
 
 
@@ -119,14 +142,14 @@
         
 
         <div class="form-group">
-            <asp:Label runat="server" AssociatedControlID="datepicker" CssClass="col-md-2 control-label">Data urodzenia:</asp:Label>
+            <asp:Label runat="server" AssociatedControlID="datepicker" CssClass="col-md-2 control-label" Font-Bold="True">Data urodzenia:</asp:Label>
             <div class="col-md-10">
                <asp:TextBox ID="datepicker" runat="server" TextMode="Date" CssClass="form-control"></asp:TextBox>
             </div>
         </div>
 
         <div class="form-group">
-            <asp:Label runat="server" CssClass="col-md-2 control-label">Płeć:</asp:Label>
+            <asp:Label runat="server" CssClass="col-md-2 control-label" Font-Bold="True">Płeć:</asp:Label>
             <div class="col-md-10">
                <asp:RadioButton ID="male" runat="server" Checked="True" CssClass="radio" Text="Mężczyzna" GroupName="sexGroup" />
                <asp:RadioButton ID="female" runat="server" CssClass="radio" Text="Kobieta" GroupName="sexGroup" />
@@ -134,7 +157,7 @@
         </div>
 
          <div class="form-group">
-            <asp:Label runat="server" CssClass="col-md-2 control-label">Miasto:</asp:Label>
+            <asp:Label runat="server" CssClass="col-md-2 control-label" Font-Bold="True">Miasto:</asp:Label>
             <div class="col-md-10">
                 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                         <ContentTemplate>
@@ -157,6 +180,28 @@
                     </asp:UpdatePanel>
             </div>
         </div>
+
+        <div class="form-group">
+            <asp:Label runat="server" CssClass="col-md-2 control-label" Font-Bold="True">*Czy akceptujesz regulamin?</asp:Label>
+            <div class="col-md-10">
+                <asp:CheckBox ID="acceptTerms2" runat="server" Checked="False" CssClass="radio" Text=" Tak" OnCheckedChanged="termsAccepted"/>
+               <!--<asp:RadioButton ID="acceptTerms" runat="server" Checked="False" CssClass="radio" Text="Tak" CausesValidation="true" OnCheckedChanged="termsAccepted"/>-->
+                <asp:LinkButton ID="TermsSiteButton" runat="server" OnClick="TermsSiteButtonClicked" CausesValidation="false">Regulamin serwisu eMemo</asp:LinkButton>
+                <br />
+                <asp:CustomValidator runat="server" ID="CheckBoxRequired"
+                    OnServerValidate="CheckBoxRequired_ServerValidate"
+                    ClientValidationFunction="CheckBoxRequired_ClientValidate">Musisz zaakceptować regulamin, żeby się zarejestrować.</asp:CustomValidator>
+            </div>
+        </div>
+
+
+        <!--<div class="form-group">
+            <asp:RadioButton ID="acceptReg" runat="server" />
+            <div class="col-md-10">
+            <asp:Label ID="Label2" CssClass="col-md-2" runat="server" Text="Akceptuję regulamin serwisu"></asp:Label>
+            <asp:LinkButton ID="LinkButton1" CssClass="col-md-2" runat="server">Regulamin</asp:LinkButton>
+            </div>
+       </div>-->
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">

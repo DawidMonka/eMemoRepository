@@ -10,7 +10,7 @@
 namespace eMemo {
     
     
-    public partial class Home {
+    public partial class WebForm1 {
         
         /// <summary>
         /// Image1 control.
@@ -22,21 +22,12 @@ namespace eMemo {
         protected global::System.Web.UI.WebControls.Image Image1;
         
         /// <summary>
-        /// Image2 control.
+        /// back control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image2;
-        
-        /// <summary>
-        /// TermsSiteButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button TermsSiteButton;
+        protected global::System.Web.UI.WebControls.Button back;
     }
 }

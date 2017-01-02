@@ -27,6 +27,18 @@
             <p>
                 <a class="btn btn-default" >Pobierz &raquo;</a>
             </p>
+
+        </div>
+
+             <div class="col-md-4">
+            <h2>Zapoznaj się z regulaminem</h2>
+            <p> 
+               Kliknij, aby wyświetlić regulamin serwisu eMemo.
+            </p>
+            <p>
+                <asp:Button ID="TermsSiteButton" class="btn btn-default" runat="server" Text="Regulamin" OnClick="TermsSiteButtonClicked" />
+            </p>
+
         </div>
     <!--    <div class="col-md-4">
             <h2>O nas</h2>

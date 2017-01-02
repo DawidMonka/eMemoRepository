@@ -188,6 +188,7 @@
     <Content Include="Resources\Release\WebMemo.datagz" />
     <Content Include="Resources\Release\WebMemo.jsgz" />
     <Content Include="Resources\Release\WebMemo.memgz" />
+    <Content Include="TermsSite.aspx" />
     <None Include="Properties\PublishProfiles\eMemoProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -382,6 +383,13 @@
     </Compile>
     <Compile Include="Scores.aspx.designer.cs">
       <DependentUpon>Scores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TermsSite.aspx.cs">
+      <DependentUpon>TermsSite.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TermsSite.aspx.designer.cs">
+      <DependentUpon>TermsSite.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

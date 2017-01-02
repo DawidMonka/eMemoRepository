@@ -76,10 +76,20 @@ namespace MemoGameSite.Helpers
             set { signDate = value; }
         }
 
+        private bool acceptTerms = false;
+
+        public bool AcceptTerms
+        {
+            get{return acceptTerms;}
+            set{acceptTerms = value;}
+        }
+
         public string InsertUserQuery   
         {
             get { return insertUserQuery; }
         }
+
+
 
         public RegistrationEntity(bool readyToRegistrate)
         {
@@ -101,7 +111,9 @@ namespace MemoGameSite.Helpers
 
         public bool noValueIsEmpty()
         {
-            return !isValueEmpty(Nick) && !isValueEmpty(Pass); 
+            return !isValueEmpty(Nick)
+                && !isValueEmpty(Pass)
+                && acceptTerms; 
             //&& !isValueEmpty(Name) &&   //te wartości nie są wymagane
                 //!isValueEmpty(Surname) &&
                 //!isValueEmpty(Sex) &&
