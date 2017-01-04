@@ -41,6 +41,19 @@ namespace eMemo
                 //DataSet ds = new DataSet();
 
                 //ds = results.getResultsByTime();
+                if (tryb == "na czas")
+                {
+                    gridview1.Columns[3].Visible = false;
+                    gridview1.Columns[4].Visible = true;
+                    gridview1.Columns[5].Visible = true;
+                }
+                if (tryb == "na punkty")
+                {
+                    gridview1.Columns[3].Visible = true;
+                    gridview1.Columns[4].Visible = false;
+                    gridview1.Columns[5].Visible = false;
+                }
+
 
                 gridview1.DataSource = ds;
                 gridview1.DataBind();
@@ -82,6 +95,18 @@ namespace eMemo
             //{
             //    ds = results.getResultsByPoints();
             //}
+            if (tryb == "na czas")
+            {
+                gridview1.Columns[3].Visible = false;
+                gridview1.Columns[4].Visible = true;
+                gridview1.Columns[5].Visible = true;
+            }
+            if (tryb == "na punkty")
+            {
+                gridview1.Columns[3].Visible = true;
+                gridview1.Columns[4].Visible = false;
+                gridview1.Columns[5].Visible = false;
+            }
 
             gridview1.DataSource = ds;
             gridview1.DataBind();
@@ -100,6 +125,12 @@ namespace eMemo
             ////close connection
             //connection.closeConnection();
 
+        }
+
+        protected void OnPageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gridview1.PageIndex = e.NewPageIndex;
+            gridview1.DataBind();
         }
     }
 }
