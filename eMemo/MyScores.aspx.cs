@@ -24,6 +24,19 @@ namespace eMemo
 
                 ds = results.getResultsByNick(wielkosc, tryb, MySession.Current.LoginNick);
 
+                if (tryb == "na czas")
+                {
+                    gridview1.Columns[3].Visible = false;
+                    gridview1.Columns[4].Visible = true;
+                    gridview1.Columns[5].Visible = true;
+                }
+                if (tryb == "na punkty")
+                {
+                    gridview1.Columns[3].Visible = true;
+                    gridview1.Columns[4].Visible = false;
+                    gridview1.Columns[5].Visible = false;
+                }
+
                 gridview1.DataSource = ds;
                 gridview1.DataBind();
             }
@@ -47,29 +60,28 @@ namespace eMemo
 
             ds = results.getResultsByNick(wielkosc, tryb, MySession.Current.LoginNick);
 
+            if (tryb == "na czas")
+            {
+                gridview1.Columns[3].Visible = false;
+                gridview1.Columns[4].Visible = true;
+                gridview1.Columns[5].Visible = true;
+            }
+            if (tryb == "na punkty")
+            {
+                gridview1.Columns[3].Visible = true;
+                gridview1.Columns[4].Visible = false;
+                gridview1.Columns[5].Visible = false;
+            }
+
             gridview1.DataSource = ds;
             gridview1.DataBind();
-            //int wielkosc = Convert.ToInt32(Wielkosc.SelectedItem.Value);
-            //string tryb = Tryb.SelectedItem.Value;
+         
 
-            //Results results = new Results(wielkosc);
-            //DataSet ds = new DataSet();
-
-            //if (tryb == "na czas")
-            //{
-            //    ds = results.getResultsByTimeByNick();
-            //}
-            //if (tryb == "na punkty")
-            //{
-            //    ds = results.getResultsByPointsByNick();
-            //}
-
-            //gridview1.DataSource = ds;
-            //gridview1.DataBind();
-
-
-
-
+        }
+        protected void OnPageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gridview1.PageIndex = e.NewPageIndex;
+            gridview1.DataBind();
         }
     }
 }
