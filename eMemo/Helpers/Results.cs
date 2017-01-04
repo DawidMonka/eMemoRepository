@@ -8,7 +8,9 @@ using eMemo.Helpers;
 
 namespace MemoGameSite.Helpers
 {
-    //Klasa obsługująca ranking uzytkownikow i moje wyniki
+    /// <summary>
+    /// Klasa obsługująca ranking uzytkownikow i moje wyniki
+    /// </summary>
     public class Results
     {
         
@@ -39,7 +41,7 @@ namespace MemoGameSite.Helpers
                 sortOrder = "desc";
             }
             //string cmdtText = "SELECT gracz, dataRozgrywa, lPkt, czasTrwania, lRuchow  FROM rozgrywa where nrPlanszy =" + wielkosc + " and trybGry =" + tryb + " order by lPkt desc limit 10";
-            string cmdtText = String.Format("SELECT {0}, {1}, {2}, {3}, lRuchow FROM {4} WHERE nrPlanszy = {5} and trybGry = '{6}' order by {7} {8} limit 10",
+            string cmdtText = String.Format("SELECT {0}, {1}, {2}, {3}, lRuchow FROM {4} WHERE nrPlanszy = {5} and trybGry = '{6}' order by {7} {8} limit 50",
                DataBaseConstants.PlaysTable.Player,
                DataBaseConstants.PlaysTable.Date,
                DataBaseConstants.PlaysTable.Points,
@@ -75,7 +77,7 @@ namespace MemoGameSite.Helpers
                 sortOrder = "desc";
             }
             //string currentNick = MySession.Current.LoginNick;
-            string cmdtText = String.Format("SELECT {0}, {1}, {2}, {3}, {4} FROM {5} WHERE {6} = '{7}' and nrPlanszy = {8} and trybGry = '{9}' order by {10} {11} limit 10",
+            string cmdtText = String.Format("SELECT {0}, {1}, {2}, {3}, {4} FROM {5} WHERE {6} = '{7}' and nrPlanszy = {8} and trybGry = '{9}' order by {10} {11} limit 50",
                 DataBaseConstants.PlaysTable.Player,
                 DataBaseConstants.PlaysTable.Date,
                 DataBaseConstants.PlaysTable.Points,
