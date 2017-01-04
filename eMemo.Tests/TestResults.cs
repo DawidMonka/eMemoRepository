@@ -13,7 +13,7 @@ namespace eMemo.Tests
     public class TestResults
     {
         
-        private const string nick = "a";
+        private const string nick = "Tomek";
         
         //private const string nickFail = "b";
         Results results = new Results();
@@ -25,7 +25,7 @@ namespace eMemo.Tests
         {
 
             var rows = results.getResults(DataBaseConstants.BoardNoValue.FourFive,DataBaseConstants.GameModeValue.PointsMode).Tables[0].Rows;
-
+            
             var firstResult = (int)rows[0]["lPkt"];
             var secondResult = (int)rows[1]["lPkt"];
 
@@ -38,7 +38,7 @@ namespace eMemo.Tests
         public void MustPassWhenFirstTimeIsLessThanSecond()
         {
 
-            var rows = results.getResults(DataBaseConstants.BoardNoValue.FourFive, DataBaseConstants.GameModeValue.TimeMode).Tables[0].Rows;
+            var rows = results.getResults(DataBaseConstants.BoardNoValue.FourFour, DataBaseConstants.GameModeValue.TimeMode).Tables[0].Rows;
 
             var firstResult = (float)rows[0]["czasTrwania"];
             var secondResult = (float)rows[1]["czasTrwania"];
@@ -52,7 +52,7 @@ namespace eMemo.Tests
         public void MustPassWhenNicksAreEqualByPoints()
         {
 
-            var rows = results.getResultsByNick(DataBaseConstants.BoardNoValue.FourFive, DataBaseConstants.GameModeValue.PointsMode,nick).Tables[0].Rows;
+            var rows = results.getResultsByNick(DataBaseConstants.BoardNoValue.FourFour, DataBaseConstants.GameModeValue.PointsMode,nick).Tables[0].Rows;
 
             var firstResult = (string)rows[0]["gracz"];
             var secondResult = (string)rows[1]["gracz"];
@@ -65,7 +65,7 @@ namespace eMemo.Tests
         public void MustPassWhenNicksAreEqualByTime()
         {
 
-            var rows = results.getResultsByNick(DataBaseConstants.BoardNoValue.FourFive, DataBaseConstants.GameModeValue.TimeMode,nick).Tables[0].Rows;
+            var rows = results.getResultsByNick(DataBaseConstants.BoardNoValue.FourFour, DataBaseConstants.GameModeValue.TimeMode,nick).Tables[0].Rows;
 
             var firstResult = (string)rows[0]["gracz"];
             var secondResult = (string)rows[1]["gracz"];
@@ -77,7 +77,7 @@ namespace eMemo.Tests
         [TestMethod]
         public void MustPassWhenNickAByPoints()
         {
-            var rows = results.getResultsByNick(DataBaseConstants.BoardNoValue.FourFive, DataBaseConstants.GameModeValue.PointsMode,nick).Tables[0].Rows;
+            var rows = results.getResultsByNick(DataBaseConstants.BoardNoValue.FourFour, DataBaseConstants.GameModeValue.PointsMode,nick).Tables[0].Rows;
 
             var firstResult = (string)rows[0]["gracz"];
             var ifEqual = firstResult == nick;
@@ -87,7 +87,7 @@ namespace eMemo.Tests
         [TestMethod]
         public void MustPassWhenNickAByTime()
         {
-            var rows = results.getResultsByNick(DataBaseConstants.BoardNoValue.FourFive, DataBaseConstants.GameModeValue.TimeMode, nick).Tables[0].Rows;
+            var rows = results.getResultsByNick(DataBaseConstants.BoardNoValue.FourFive, DataBaseConstants.GameModeValue.TimeMode,nick).Tables[0].Rows;
 
             var firstResult = (string)rows[0]["gracz"];
             var ifEqual = firstResult == nick;

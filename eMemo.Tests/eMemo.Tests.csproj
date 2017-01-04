@@ -57,6 +57,7 @@
     <Compile Include="TestResults.cs" />
     <Compile Include="TestUser.cs" />
     <Compile Include="TestPersonalData.cs" />
+    <Compile Include="TestUserManagement.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\eMemo\eMemo.csproj">

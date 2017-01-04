@@ -9,36 +9,60 @@ using eMemo.Helpers;
 using MemoGameSite.Helpers;
 
 
+
+
 namespace eMemo.Tests
 {
     [TestClass]
-    class TestUserManagement
+    public class TestUserManagement
     {
         private DataBaseConnection dbConnection = new DataBaseConnection();
-        private UsersManagement usersManagement = new UsersManagement(); 
+        private UsersManagement usersManagement = new UsersManagement();
 
+        String searchNick = "test";
 
-        
         private void CreateNewUser()
         {
             RegistrationEntity entity = new RegistrationEntity(true);
-            entity.Nick = "test";
-            entity.Pass = "test";
-            entity.Name = "test";
-            entity.Surname = "test";
+            entity.Nick = searchNick;
+            entity.Pass = searchNick;
+            entity.Name = "t";
+            entity.Surname = "t";
+            entity.AcceptTerms = true;
+            entity.BirthDate = null;
+            entity.Sex = "M";
+            entity.City = "test";
+            entity.SignDate = DateTime.Now;
 
             entity.insertNewUser(dbConnection);
         }
+        
+
 
         [TestMethod]
         public void MustPassWhenDeleted()
         {
-            bool ifContains = false;
-            CreateNewUser();
-            var rows = usersManagement.getUsers().Tables[0].Rows;
-            ifContains = rows.Contains("test");
-            Assert.IsTrue(ifContains);
+            bool ifContains = true;
+            CreateNewUser(); 
+            usersManagement.deleteUser(searchNick);
+            DataTable tbl = usersManagement.getUsers().Tables[0];
+            DataRow[] foundValue = tbl.Select("nick = '" + searchNick + "'");
+            
+            if (foundValue.Length == 0)
+            {
+                ifContains = false;
+            }
+           
+            
+            Assert.IsFalse(ifContains);
             //usersManagement.deleteUser("test");
         }
+        [TestMethod]
+        public void MustPassWhenGetTrueAfterDeleted()
+        {
+            CreateNewUser();
+            Assert.IsTrue(usersManagement.deleteUser(searchNick));
+        }
+
     }
 }
