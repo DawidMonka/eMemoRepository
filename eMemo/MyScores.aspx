@@ -48,9 +48,9 @@
 
             <asp:GridView ID="gridview1" runat="server" UseAccessibleHeader="true"
             CssClass="table table-hover table-striped" GridLines="None" 
-            AutoGenerateColumns="False">
+            AutoGenerateColumns="False" AllowPaging="true" PageSize="10" OnPageIndexChanging="OnPageIndexChanging">
             <Columns>
-                <asp:TemplateField HeaderText = "Miejsce " ItemStyle-Width="100">
+                <asp:TemplateField HeaderText = "miejsce " ItemStyle-Width="100">
                 <ItemTemplate>
                     <asp:Label ID="lblRowNumber" Text='<%# Container.DataItemIndex + 1 %>' runat="server" />
                 </ItemTemplate>
