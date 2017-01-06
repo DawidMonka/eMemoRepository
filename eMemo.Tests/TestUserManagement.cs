@@ -29,7 +29,7 @@ namespace eMemo.Tests
             entity.Name = "t";
             entity.Surname = "t";
             entity.AcceptTerms = true;
-            entity.BirthDate = null;
+            entity.BirthDate = DateTime.MinValue;
             entity.Sex = "M";
             entity.City = "test";
             entity.SignDate = DateTime.Now;

@@ -138,6 +138,69 @@ public partial class Register {
     protected global::System.Web.UI.WebControls.DropDownList cityList;
     
     /// <summary>
+    /// acceptTerms2 control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.CheckBox acceptTerms2;
+    
+    /// <summary>
+    /// acceptTerms control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.RadioButton acceptTerms;
+    
+    /// <summary>
+    /// TermsSiteButton control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.LinkButton TermsSiteButton;
+    
+    /// <summary>
+    /// CheckBoxRequired control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.CustomValidator CheckBoxRequired;
+    
+    /// <summary>
+    /// acceptReg control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.RadioButton acceptReg;
+    
+    /// <summary>
+    /// Label2 control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label Label2;
+    
+    /// <summary>
+    /// LinkButton1 control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
+    
+    /// <summary>
     /// Submit control.
     /// </summary>
     /// <remarks>

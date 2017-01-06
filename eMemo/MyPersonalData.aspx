@@ -37,14 +37,14 @@
             </div>
         </div>
         <div class="form-group">
-            <asp:Label runat="server" CssClass="col-md-2 control-label" ID="sexLabel">Płeć:</asp:Label>
+            <asp:Label runat="server" CssClass="col-md-2 control-label" ID="sexLabel" Font-Bold="True">Płeć:</asp:Label>
             <div class="col-md-10">
                <asp:RadioButton ID="male" runat="server" Checked="True" CssClass="radio" Text="Mężczyzna" GroupName="sexGroup" ReadOnly="true"/>
                <asp:RadioButton ID="female" runat="server" CssClass="radio" Text="Kobieta   " GroupName="sexGroup" ReadOnly="true"/>
             </div>
         </div>
          <div class="form-group">
-            <asp:Label runat="server" CssClass="col-md-2 control-label" ID="cityLabel">Miasto:</asp:Label>
+            <asp:Label runat="server" CssClass="col-md-2 control-label" ID="cityLabel" Font-Bold="True">Miasto:</asp:Label>
             <div class="col-md-10">
                 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                         <ContentTemplate>

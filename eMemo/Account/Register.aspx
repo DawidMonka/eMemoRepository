@@ -25,7 +25,7 @@
         {
             setRegistrationEntityValues(registrationEntity);
 
-            if (registrationEntity.noValueIsEmpty())
+            if (registrationEntity.noValueIsEmpty() && !registrationEntity.WrongDateFormat)
             {
                 registrationEntity.insertNewUser(dataBaseConnection);
                 //ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Pomyślnie zarejestrowano nowego użytkownika.');", true);
@@ -35,8 +35,17 @@
             }
             else
             {
-                //Response.Write("Bład rejestracji użytkownika. Spróbuj jeszcze raz.");
+                if (registrationEntity.WrongDateFormat)
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Niepoprawny format daty urodzenia. Spróbuj ponownie.');", true);
+                    registrationEntity.WrongDateFormat = false;
+                    datepicker.Text = String.Empty;
+                }
+                else
+                {
+                                    //Response.Write("Bład rejestracji użytkownika. Spróbuj jeszcze raz.");
                 ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('W celu zarejestrowania należy wypełnić wszystkie wymagane pola.');", true);
+                }
             }
         }
 
@@ -52,12 +61,28 @@
         if (acceptTerms2.Checked)
             registrationEntity.AcceptTerms = true;
 
-        if (datepicker.Text == String.Empty)
+        //if (datepicker.Text == String.Empty)
+        //{
+        //    registrationEntity.BirthDate = null;
+        //}
+        //else
+        //    registrationEntity.BirthDate = datepicker.Text;
+
+        if (datepicker.Text.Equals(String.Empty))
         {
-            registrationEntity.BirthDate = null;
+            registrationEntity.BirthDate = DateTime.MinValue;
         }
         else
-            registrationEntity.BirthDate = datepicker.Text;
+        {
+            try
+            {
+                registrationEntity.BirthDate = Convert.ToDateTime(datepicker.Text);
+            }
+            catch (FormatException)
+            {
+                registrationEntity.WrongDateFormat = true;
+            }
+        }
 
         if (male.Checked)
             registrationEntity.Sex = "M";
@@ -96,6 +121,20 @@
    <%-- <p class="text-danger">
         <asp:Literal runat="server" ID="ErrorMessage" />
     </p>--%>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" />
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css" />
+
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $(function () {
+            $("#datepicker").datepicker();
+        });
+    });</script>
+
+
 
     <div class="form-horizontal">
         <hr />
@@ -144,7 +183,7 @@
         <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="datepicker" CssClass="col-md-2 control-label" Font-Bold="True">Data urodzenia:</asp:Label>
             <div class="col-md-10">
-               <asp:TextBox ID="datepicker" runat="server" TextMode="Date" CssClass="form-control"></asp:TextBox>
+               <asp:TextBox ID="datepicker" runat="server" TextMode="Date" Defaul CssClass="form-control" ClientIdMode="static"></asp:TextBox>
             </div>
         </div>
 

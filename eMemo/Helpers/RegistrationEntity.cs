@@ -14,6 +14,7 @@ namespace MemoGameSite.Helpers
     public class RegistrationEntity
     {
         private bool readyToRegistrate;
+        private bool wrongDateFormat;
         private const string insertUserQuery = "INSERT INTO Uzytkownik " +
             "(nick, haslo, imie, nazwisko, dataRej, miasto, dataUr, plec) " +
             "VALUES (@nick, @pass, @name, @surname, @sign_date, @city, @birth_date, @sex)";
@@ -47,13 +48,23 @@ namespace MemoGameSite.Helpers
             get { return surname; }
             set { surname = value; }
         }
-        private string birthDate;
+
+      /*  private string birthDate;
 
         public string BirthDate
         {
             get { return birthDate; }
             set { birthDate = value; }
+        }*/
+
+        private DateTime birthDate;
+
+        public DateTime BirthDate
+        {
+            get { return birthDate; }
+            set { birthDate = value; }
         }
+
         private string sex;
 
         public string Sex
@@ -89,7 +100,11 @@ namespace MemoGameSite.Helpers
             get { return insertUserQuery; }
         }
 
-
+        public bool WrongDateFormat
+        {
+            get{return wrongDateFormat;}
+            set{wrongDateFormat = value;}
+        }
 
         public RegistrationEntity(bool readyToRegistrate)
         {

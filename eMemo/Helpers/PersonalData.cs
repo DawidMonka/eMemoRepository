@@ -43,12 +43,26 @@ namespace eMemo.Helpers
         {
             set { birthDate = value; }
         }
-        public string getBirthDate()
+
+/*        public string getBirthDate()
         {
             string date = "";
 
             if (birthDate.Length != 0)
                 date = birthDate.Substring(0, 10);
+
+            return date;
+        }*/
+
+        public string getBirthDate()
+        {
+            string date = "";
+
+            if (birthDate != DateTime.MinValue.ToString())
+            {
+                if (birthDate.Length != 0)
+                    date = birthDate.Substring(0, 10);
+            }
 
             return date;
         }

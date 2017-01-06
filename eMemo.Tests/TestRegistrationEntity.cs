@@ -107,10 +107,11 @@ namespace UnitTestLoginSite
         {
             regEntity.Nick = value1;
             regEntity.Pass = value2;
-            regEntity.Name = value1;
-            regEntity.Surname = value2;
-            regEntity.Sex = value1;
-            regEntity.City = value2;
+            regEntity.AcceptTerms = true;
+            //regEntity.Name = value1;
+            //regEntity.Surname = value2;
+            //regEntity.Sex = value1;
+            //regEntity.City = value2;
         }
     }
 }
