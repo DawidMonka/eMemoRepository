@@ -189,9 +189,6 @@
     <Content Include="Resources\Release\WebMemo.jsgz" />
     <Content Include="Resources\Release\WebMemo.memgz" />
     <Content Include="TermsSite.aspx" />
-    <Content Include="Downloads\eMemo.apk" />
-    <Content Include="Downloads\eMemo.zip" />
-    <Content Include="Downloads\eMemoMac.zip" />
     <None Include="Properties\PublishProfiles\eMemoProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -397,6 +394,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Downloads\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
