@@ -12,10 +12,17 @@ using eMemo.Helpers;
 
 namespace eMemo.Account
 {
+    /// <summary>
+    /// Strona Administratora
+    /// </summary>
     public partial class Admin : System.Web.UI.Page
     {
         
-        
+        /// <summary>
+        /// Ładowanie strony
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             //TO DO ten warunek trzeba odkomentować gdy strona Admina będzie już gotowa
@@ -39,13 +46,23 @@ namespace eMemo.Account
                 //Response.Redirect("~/Home.aspx");
 
         }
-        
+
+        /// <summary>
+        /// Zmiana indeksu strony
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void OnPageIndexChanging(object sender,GridViewPageEventArgs e)
         {
             gridview1.PageIndex = e.NewPageIndex;
             gridview1.DataBind();
         }
 
+        /// <summary>
+        /// Potwierdzenie usunięcia użytkownika
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void OnConfirm(object sender, CommandEventArgs e)
         {
             string nick = e.CommandArgument as string; 

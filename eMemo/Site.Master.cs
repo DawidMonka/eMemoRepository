@@ -10,6 +10,9 @@ using eMemo.Helpers;
 
 namespace eMemo
 {
+    /// <summary>
+    /// Strona SiteMaster
+    /// </summary>
     public partial class SiteMaster : MasterPage
     {
         private const string AntiXsrfTokenKey = "__AntiXsrfToken";
@@ -67,6 +70,11 @@ namespace eMemo
             }
         }
 
+        /// <summary>
+        /// Ładowanie strony iwyświetlanie przycisków zależnie od kategori użytkownika
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)    
         {
             //gdy użytkonik jest zalogowany
@@ -95,6 +103,11 @@ namespace eMemo
             }
         }
 
+        /// <summary>
+        /// Metoda nieużywana
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Unnamed_LoggingOut(object sender, EventArgs e)
         {
             MySession.Current.LoggOffUser();
@@ -109,6 +122,11 @@ namespace eMemo
             //Context.GetOwinContext().Authentication.SignOut();
         }
 
+        /// <summary>
+        /// Obsługa przcisku Wyloguj
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void LoggOut_Click(object sender, EventArgs e)
         {
             MySession.Current.LoggOffUser();

@@ -16,6 +16,9 @@ using eMemo.Helpers;
 
 namespace eMemo.Account
 {
+    /// <summary>
+    /// Strona logowania
+    /// </summary>
     public partial class Login : Page
     {
     //    private bool ActivateCookie(string userName, string password, bool rememberMe)

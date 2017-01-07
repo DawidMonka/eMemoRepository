@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using eMemo.Helpers;
 
 
 namespace MemoGameSite.Helpers
@@ -11,7 +12,7 @@ namespace MemoGameSite.Helpers
     /// </summary>
     public class NickField
     {
-        private const string adminNick = "Admin";
+        private string adminNick = DataBaseConstants.AdminNick;
         private const string querryForNickCheck = "SELECT COUNT(*) FROM Uzytkownik WHERE nick='";
         
         private DataBaseConnection dataBaseConnection;
@@ -52,6 +53,11 @@ namespace MemoGameSite.Helpers
             return result;
         }
 
+        /// <summary>
+        /// Metoda sprawdzająca, czy string jest pusty
+        /// </summary>
+        /// <param name="nick"></param>
+        /// <returns></returns>
         public bool isEmpty(string nick)
         {
             return nick.Equals(String.Empty);

@@ -10,7 +10,7 @@
 namespace eMemo {
     
     
-    public partial class WebForm1 {
+    public partial class TermsSite {
         
         /// <summary>
         /// Image1 control.

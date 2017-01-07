@@ -12,8 +12,16 @@ using eMemo.Helpers;
 
 namespace eMemo 
 {
+    /// <summary>
+    /// Strona prezentująca Ranking wyników
+    /// </summary>
     public partial class Scores : System.Web.UI.Page
     {
+        /// <summary>
+        /// Ładowanie strony
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (MySession.Current.isUserLoggedIn())
@@ -78,6 +86,11 @@ namespace eMemo
 
         }
 
+        /// <summary>
+        /// Obsługa przycisku Zatwierdź
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnApply_Click(Object sender, EventArgs e)
         {
             int wielkosc = Convert.ToInt32(Wielkosc.SelectedItem.Value);
@@ -127,6 +140,11 @@ namespace eMemo
 
         }
 
+        /// <summary>
+        /// Zmiana indeksu strony
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void OnPageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             gridview1.PageIndex = e.NewPageIndex;

@@ -9,6 +9,9 @@ using System.Configuration;
 
 namespace eMemo.Account
 {
+    /// <summary>
+    /// Strona Rejestracji
+    /// </summary>
     public partial class Register : System.Web.UI.Page
     {     
     }

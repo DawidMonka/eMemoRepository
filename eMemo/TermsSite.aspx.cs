@@ -7,22 +7,37 @@ using System.Web.UI.WebControls;
 
 namespace eMemo
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class TermsSite : System.Web.UI.Page
     {
         static string prevPage = string.Empty;
 
+        /// <summary>
+        /// Metoda osługująca ładowanie strony
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                if (Request.UrlReferrer.ToString() != null)
+                if (Request.UrlReferrer != null)
                     prevPage = Request.UrlReferrer.ToString();
             }
         }
 
+        /// <summary>
+        /// Metoda obsługująca przycisk Powrót
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnBack_Click(object sender, EventArgs e)
         {
-            Response.Redirect(prevPage);
+            if (!prevPage.Equals(String.Empty))
+            {
+                Response.Redirect(prevPage);
+            }
+            else
+                Response.Redirect("~/Home.aspx");
         }
     }
 }

@@ -44,16 +44,20 @@ namespace eMemo.Helpers
             set { birthDate = value; }
         }
 
-/*        public string getBirthDate()
-        {
-            string date = "";
+        /*        public string getBirthDate()
+                {
+                    string date = "";
 
-            if (birthDate.Length != 0)
-                date = birthDate.Substring(0, 10);
+                    if (birthDate.Length != 0)
+                        date = birthDate.Substring(0, 10);
 
-            return date;
-        }*/
+                    return date;
+                }*/
 
+        /// <summary>
+        /// Metoda formatująca datę urodzenia przed wyświetleniem
+        /// </summary>
+        /// <returns></returns>
         public string getBirthDate()
         {
             string date = "";
@@ -97,6 +101,10 @@ namespace eMemo.Helpers
             DataIsComplete = false;
         }
 
+        /// <summary>
+        /// Metoda pobierająca wszystkie wprowadzone dane użytkownika
+        /// </summary>
+        /// <returns></returns>
         public bool getAllDataFromDataBase()
         {
             bool mustConnectToDataBase = false;
@@ -110,6 +118,9 @@ namespace eMemo.Helpers
             return mustConnectToDataBase;
         }
 
+        /// <summary>
+        /// Metoda pobierająca dane użytownika i wprowadzająca je do pól strony
+        /// </summary>
         private void getAllData()
         {
             connection = new DataBaseConnection();

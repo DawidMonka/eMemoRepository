@@ -40,16 +40,26 @@ namespace eMemo.Helpers
             }
         }
 
+        /// <summary>
+        /// Metoda sprawdzająca, czy użytkownik jest zalogowany
+        /// </summary>
+        /// <returns></returns>
         public bool isUserLoggedIn()
         {
             return !LoginNick.Equals(String.Empty);
         }
 
+        /// <summary>
+        /// Metoda ustawiająca propertę LoginNick na pustą
+        /// </summary>
         public void LoggOffUser()
         {
             LoginNick = String.Empty;
         }
 
+        /// <summary>
+        /// Metoda tworząca klase PersonalData dla zalogowane użytkownika
+        /// </summary>
         public void CreateNewPersonalData()
         {
             personalData = new PersonalData(LoginNick); 

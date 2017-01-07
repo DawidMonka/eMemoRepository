@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Regulamin" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="TermsSite.aspx.cs" Inherits="eMemo.WebForm1" %>
+﻿<%@ Page Title="Regulamin" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="TermsSite.aspx.cs" Inherits="eMemo.TermsSite" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
         <p><asp:Image id="Image1" runat="server"
                     AlternateText="Image text"

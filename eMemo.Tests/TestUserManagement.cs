@@ -13,6 +13,9 @@ using MemoGameSite.Helpers;
 
 namespace eMemo.Tests
 {
+    /// <summary>
+    /// Klasa testująca klase Helpers.UsersManagement
+    /// </summary>
     [TestClass]
     public class TestUserManagement
     {

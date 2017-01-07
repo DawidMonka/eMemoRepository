@@ -7,6 +7,11 @@
 
     }
 
+    /// <summary>
+    /// Obsługa przycisku Rejestruj
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     protected void Submit_Click(object sender, EventArgs e)
     {
         var nickField = new MemoGameSite.Helpers.NickField();
@@ -62,7 +67,7 @@
     }
 
     /// <summary>
-    /// Wprowadzenie danych do RegstrationEntity
+    /// Wprowadzenie danych do RegistrationEntity
     /// </summary>
     /// <param name="registrationEntity"></param>
     private void setRegistrationEntityValues(MemoGameSite.Helpers.RegistrationEntity registrationEntity)
@@ -107,6 +112,11 @@
         registrationEntity.SignDate = DateTime.Now;
     }
 
+    /// <summary>
+    /// Ładowanie strony
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     protected void Page_Load(object sender, EventArgs e)
     {
 

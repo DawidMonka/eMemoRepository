@@ -15,7 +15,14 @@ namespace MemoGameSite.Helpers
     /// </summary>
     public class DataBaseConnection
     {
+        /// <summary>
+        /// Definicja ConnectionString
+        /// </summary>
         private static string mySqlConnectionString = "MySqlConnectionString";
+
+        /// <summary>
+        /// Połączenie z bazą MySql
+        /// </summary>
         private MySqlConnection connection;
 
         public MySqlConnection Connection
@@ -24,6 +31,9 @@ namespace MemoGameSite.Helpers
             set { connection = value; }
         }
 
+        /// <summary>
+        /// Konstruktor klasy
+        /// </summary>
         public DataBaseConnection()
         {
             connection = new MySqlConnection(System.Configuration.ConfigurationManager.
@@ -36,11 +46,17 @@ namespace MemoGameSite.Helpers
             set { mySqlConnectionString = value; }
         }
 
+        /// <summary>
+        /// Metoda otwierająca połączenie
+        /// </summary>
         public void openConnection()
         {
             Connection.Open();
         }
 
+        /// <summary>
+        /// Metoda zamykająca połączenie
+        /// </summary>
         public void closeConnection()
         {
             Connection.Close();
@@ -63,16 +79,32 @@ namespace MemoGameSite.Helpers
             return result;
         }
 
+        /// <summary>
+        /// Metoda sprawdzająca, czy połączenie jest otwarte
+        /// </summary>
+        /// <returns></returns>
         public bool isConnectionOpen()
         {
             return connection.State == ConnectionState.Open;       
         }
 
+        /// <summary>
+        /// Metoda zwracająca wartość z kolumny zleżnie od warości nick 
+        /// </summary>
+        /// <param name="columnName"></param>
+        /// <param name="nick"></param>
+        /// <returns></returns>
         public string getStringValueFromDataBaseUsingNick(string columnName, string nick)
         {
             return getStringValueFromDataBase(selectQueryUsingNick(columnName, nick));
         }
 
+        /// <summary>
+        /// Metoda budująca zapytanie dla zadanej nazwy kolumny i wartości nick
+        /// </summary>
+        /// <param name="columnName"></param>
+        /// <param name="nick"></param>
+        /// <returns></returns>
         private string selectQueryUsingNick(string columnName, string nick)
         {
             string querryPt1 = "SELECT ";
@@ -82,6 +114,11 @@ namespace MemoGameSite.Helpers
             return querryPt1 + columnName + querryPt2 + "'" + nick + "'";
         }
 
+        /// <summary>
+        /// Metoda zwracająca DataSet z bazy
+        /// </summary>
+        /// <param name="query"></param>
+        /// <returns></returns>
         public DataSet getDataSetFromDataBase(string query)
         {
             openConnection();

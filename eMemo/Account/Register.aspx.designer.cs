@@ -9,7 +9,7 @@
 
 
 
-public partial class Register {
+public partial class  {
     
     /// <summary>
     /// nick control.

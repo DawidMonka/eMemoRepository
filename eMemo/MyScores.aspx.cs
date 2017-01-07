@@ -10,8 +10,16 @@ using eMemo.Helpers;
 
 namespace eMemo
 {
+    /// <summary>
+    /// Strona Moje wyniki prezentująca wyniki zalogowanego użytkownika
+    /// </summary>
     public partial class MyScores : System.Web.UI.Page
     {
+        /// <summary>
+        /// Ładowanie strony
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (MySession.Current.isUserLoggedIn())
@@ -49,6 +57,11 @@ namespace eMemo
 
         }
 
+        /// <summary>
+        /// Obsługa przycisku Zatwierdź
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnApply_Click(Object sender, EventArgs e)
         {
 
@@ -78,6 +91,12 @@ namespace eMemo
          
 
         }
+
+        /// <summary>
+        /// Zmiana indeksu strony
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void OnPageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             gridview1.PageIndex = e.NewPageIndex;

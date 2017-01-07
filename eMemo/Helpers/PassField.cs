@@ -10,7 +10,6 @@ namespace MemoGameSite.Helpers
     /// </summary>
     public class PassField
     {
-        //private const string adminPass = "admin";
         private string selectPass = "SELECT haslo FROM Uzytkownik WHERE nick ='";
 
         private DataBaseConnection dataBaseConnection;
@@ -26,6 +25,12 @@ namespace MemoGameSite.Helpers
             set { selectPass = value; }
         }
 
+        /// <summary>
+        /// Mtoda sprawdzająca czy hasło jest prawidłowe
+        /// </summary>
+        /// <param name="nick"></param>
+        /// <param name="pass"></param>
+        /// <returns></returns>
         public bool isPasswordCorrect(string nick, string pass)
         {
             return (getPasswordFromDataBase(nick).Equals(pass));
@@ -47,6 +52,11 @@ namespace MemoGameSite.Helpers
             return value;
         }
 
+        /// <summary>
+        /// Metoda sprawdzająca czy string (password) jest pusty
+        /// </summary>
+        /// <param name="password"></param>
+        /// <returns></returns>
         public bool isEmpty(string password)
         {
             return password.Equals(String.Empty);

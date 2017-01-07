@@ -11,11 +11,19 @@ using eMemo.Helpers;
 
 namespace eMemo
 {
+    /// <summary>
+    /// Strona Moje dane wyświetlająca dane personalne zalogowanego użytkownika
+    /// </summary>
     public partial class MyPersonalData : Page
     {
         private PersonalData personalData;
         private const string hiddenPass = "*******";
-        
+
+        /// <summary>
+        /// Łdaowanie strony
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (MySession.Current.isUserLoggedIn())
@@ -33,6 +41,9 @@ namespace eMemo
 
         }
 
+        /// <summary>
+        /// Wyświetlanie danych użytkownika
+        /// </summary>
         private void displayUserData()
         {
             nick.Text = personalData.Nick;
@@ -49,11 +60,17 @@ namespace eMemo
             cityList.SelectedValue = personalData.City;
         }
 
+
         protected void updateButton_Click(object sender, EventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// Obsługa przycisku Pokaż hasło
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void showPass_Click(object sender, EventArgs e)
         {
             if(showPass.Text.Equals("Pokaż hasło"))
