@@ -14,6 +14,7 @@
         var dataBaseConnection = new MemoGameSite.Helpers.DataBaseConnection();
         var registrationEntity = new MemoGameSite.Helpers.RegistrationEntity(true);
 
+        //warunek sprawdzający czy istnieje już podany nick w bazie danych
         if (!nickField.isEmpty(nick.Text) && nickField.checkIfNickInDataBase(nick.Text))
         {
             ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Rejestracja nie powiodła się. "
@@ -23,34 +24,47 @@
         }
         else
         {
-            setRegistrationEntityValues(registrationEntity);
-
-            if (registrationEntity.noValueIsEmpty() && !registrationEntity.WrongDateFormat)
+            //warunek sprawdzający czy nie przekroczono dopuszczlnej liczby znaków
+            if (registrationEntity.valueLenghtIsRight(nick.Text) && registrationEntity.valueLenghtIsRight(pass.Text))
             {
-                registrationEntity.insertNewUser(dataBaseConnection);
-                //ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Pomyślnie zarejestrowano nowego użytkownika.');", true);
-                Response.Redirect("Login.aspx");
-                //Response.Write("Pomyślnie zarejestrowano nowego użytkownika.");
+                setRegistrationEntityValues(registrationEntity);
 
-            }
-            else
-            {
-                if (registrationEntity.WrongDateFormat)
+                //warunek sprawdzający, czy wszystkie pola sa zapełnione i czy prawidłowy jest format daty
+                if (registrationEntity.noValueIsEmpty() && !registrationEntity.WrongDateFormat)
                 {
-                    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Niepoprawny format daty urodzenia. Spróbuj ponownie.');", true);
-                    registrationEntity.WrongDateFormat = false;
-                    datepicker.Text = String.Empty;
+                    registrationEntity.insertNewUser(dataBaseConnection);
+                    //ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Pomyślnie zarejestrowano nowego użytkownika.');", true);
+                    Response.Redirect("Login.aspx");
+                    //Response.Write("Pomyślnie zarejestrowano nowego użytkownika.");
+
                 }
                 else
                 {
-                                    //Response.Write("Bład rejestracji użytkownika. Spróbuj jeszcze raz.");
-                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('W celu zarejestrowania należy wypełnić wszystkie wymagane pola.');", true);
+                    //komunikat gdy format daty jest niepoprawny
+                    if (registrationEntity.WrongDateFormat)
+                    {
+                        ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Niepoprawny format daty urodzenia. Spróbuj ponownie.');", true);
+                        registrationEntity.WrongDateFormat = false;
+                        datepicker.Text = String.Empty;
+                    }
+                    else
+                    {
+                        //Response.Write("Bład rejestracji użytkownika. Spróbuj jeszcze raz.");
+                        ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('W celu zarejestrowania należy wypełnić wszystkie wymagane pola.');", true);
+                    }
                 }
             }
+            else
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Nieprawidłowa długość nicku lub hasła. Dopuszczalna długość 5-15 znaków.');", true);
+            }
         }
-
     }
 
+    /// <summary>
+    /// Wprowadzenie danych do RegstrationEntity
+    /// </summary>
+    /// <param name="registrationEntity"></param>
     private void setRegistrationEntityValues(MemoGameSite.Helpers.RegistrationEntity registrationEntity)
     {
         registrationEntity.Nick = nick.Text;
@@ -98,6 +112,11 @@
 
     }
 
+    /// <summary>
+    /// Wyświetlenie strony z Regulaminem 
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     protected void TermsSiteButtonClicked(object sender, EventArgs e)
     {
         //ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('REGULAMIN');", true);
@@ -122,7 +141,7 @@
         <asp:Literal runat="server" ID="ErrorMessage" />
     </p>--%>
 
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" />
+ <!--   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" />
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <link rel="stylesheet" href="/resources/demos/style.css" />
@@ -132,7 +151,7 @@
         $(function () {
             $("#datepicker").datepicker();
         });
-    });</script>
+    });</script> -->
 
 
 
@@ -152,7 +171,7 @@
                 <asp:TextBox ID="pass" runat="server" TextMode="Password" CssClass="form-control" ></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="pass"
                      ErrorMessage="Podaj hasło"  CssClass="text-danger"></asp:RequiredFieldValidator>       
-            </div>
+                .</div>
         </div>
         <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="conf" CssClass="col-md-2 control-label">*Potwierdź hasło:</asp:Label>

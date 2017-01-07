@@ -106,16 +106,29 @@ namespace MemoGameSite.Helpers
             set{wrongDateFormat = value;}
         }
 
+        /// <summary>
+        /// Metoda ustawia wartość dla property readyToRegistrate 
+        /// </summary>
+        /// <param name="readyToRegistrate"></param>
         public RegistrationEntity(bool readyToRegistrate)
         {
             this.readyToRegistrate = readyToRegistrate;
         }
 
+        /// <summary>
+        /// Metoda zwraca informację, czy rejestracja jest możliwa
+        /// </summary>
+        /// <returns></returns>
         public bool IsReadyToRegistrate()
         {
             return readyToRegistrate;
         }
 
+        /// <summary>
+        /// Metoda sprawdza, czuy zadane pole jest puste
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public bool isValueEmpty(string value)
         {
             if (value != null)
@@ -124,6 +137,10 @@ namespace MemoGameSite.Helpers
                 return true;
         }
 
+        /// <summary>
+        /// Metoda sprawdza, czy żadne z wymaganych pół nie jest puste
+        /// </summary>
+        /// <returns></returns>
         public bool noValueIsEmpty()
         {
             return !isValueEmpty(Nick)
@@ -165,6 +182,20 @@ namespace MemoGameSite.Helpers
             catch(OperationCanceledException e) {}
 
             return result;
+        }
+
+        /// <summary>
+        /// sprawdza, czy długość wprowadzonego pola nie jest większa lub mniejsza 
+        /// od maksymalnej dopuszczalnej w bazie danych
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public bool valueLenghtIsRight(string value)
+        {
+            int minLenght = 5;
+            int maxLenght = 15;
+
+            return value.Length < minLenght && value.Length < maxLenght;
         }
     }
 }

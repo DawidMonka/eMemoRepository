@@ -16,7 +16,7 @@
                 a. Regulamin - niniejszy regulamin dotyczy serwisu eMemo z zakresu udostepniania gry mobilnej i list rankingowych wyników graczy na stronie:
             </p>
             <p>
-                <a href="http://www.ememoscript.gear.host.com">www.ememoscript.gear.host.com</a></p>
+                <a href="ememogame.gear.host/Home">ememogame.gearhost/Home</a></p>
             <p>
                 b. Usługodawca - &quot;Zespół TOGADA&quot; w ramach zajęć ZPI PWR 2016/2017</p>
             <p>
@@ -24,7 +24,7 @@
             <p>
                 d. Usługi - wszelkie usługi świadczone drogą elektroniczną przez Usługodawcę na rzecz Usługobiorców w oparciu o niniejszy Regulamin.</p>
             <p>
-                c. Serwis - wszelkie udostępniane nieodpłatnie przez Usługodawcę aplikacje (gry mobilne) oraz strona <a href="http://www.ememoscript.gear.host.com">www.ememoscript.gear.host.com</a>
+                c. Serwis - wszelkie udostępniane nieodpłatnie przez Usługodawcę aplikacje (gry mobilne) oraz strona <a  href="ememogame.gear.host/Home">ememogame.gearhost/Home</a>
             </p>
 
             <p>

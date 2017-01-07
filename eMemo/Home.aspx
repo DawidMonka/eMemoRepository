@@ -28,11 +28,11 @@
                 <asp:Button ID="android" class="btn btn-default" runat="server" Text="Android" OnClick="androidClicked" />
             </p>
             <p>
-                Kliknij, aby pobrać grę na PC z systemem Windows lub Mac:
+                Kliknij, aby pobrać grę na PC z systemem Windows lub macOS:
             </p>
             <p>
-                <asp:Button ID="windows" class="btn btn-default" runat="server" Text="WinPhone" OnClick="windowsClicked" />
-                <asp:Button ID="mac" class="btn btn-default" runat="server" Text="MacOS" OnClick="macOsCLicked" />
+                <asp:Button ID="windows" class="btn btn-default" runat="server" Text="Windows" OnClick="windowsClicked" />
+                <asp:Button ID="mac" class="btn btn-default" runat="server" Text="macOS" OnClick="macOsCLicked" />
             </p>
         </div>
 
