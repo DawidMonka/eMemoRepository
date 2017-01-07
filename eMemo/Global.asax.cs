@@ -9,6 +9,9 @@ using System.Web.SessionState;
 
 namespace eMemo
 {
+    /// <summary>
+    /// Klasa Global
+    /// </summary>
     public class Global : HttpApplication
     {
         void Application_Start(object sender, EventArgs e)

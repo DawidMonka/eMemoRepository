@@ -8,6 +8,9 @@ using System.Web;
 
 namespace eMemo.Account
 {
+    /// <summary>
+    /// Klasa OpenAuthProviders
+    /// </summary>
     public partial class OpenAuthProviders : System.Web.UI.UserControl
     {
         protected void Page_Load(object sender, EventArgs e)

@@ -7,6 +7,10 @@ using eMemo.Models;
 
 namespace eMemo.Account
 {
+    /// <summary>
+    /// Klasa Manage do obsługi logowania
+    /// Klasa niewykorzystana w projekcie
+    /// </summary>
     public partial class Manage : System.Web.UI.Page
     {
         protected string SuccessMessage

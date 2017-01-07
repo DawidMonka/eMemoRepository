@@ -7,6 +7,10 @@ using System.Web.UI.WebControls;
 
 namespace eMemo
 {
+
+    /// <summary>
+    /// Strona wyświetlająca Regulamin serwisu
+    /// </summary>
     public partial class TermsSite : System.Web.UI.Page
     {
         static string prevPage = string.Empty;
