@@ -195,7 +195,7 @@ namespace MemoGameSite.Helpers
             int minLenght = 5;
             int maxLenght = 15;
 
-            return value.Length < minLenght && value.Length < maxLenght;
+            return value.Length >= minLenght && value.Length <= maxLenght;
         }
     }
 }

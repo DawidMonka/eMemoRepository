@@ -25,8 +25,7 @@ namespace eMemo.Account
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
-            //TO DO ten warunek trzeba odkomentować gdy strona Admina będzie już gotowa
-            //if (MySession.Current.LoginNick.Equals(DataBaseConstants.AdminNick))
+            if (MySession.Current.LoginNick.Equals(DataBaseConstants.AdminNick))
             {
                 //DataBaseConnection connection = new DataBaseConnection();
                 //connection.openConnection();
@@ -42,8 +41,8 @@ namespace eMemo.Account
                 gridview1.DataSource = ds;
                 gridview1.DataBind();
             }
-            //else
-                //Response.Redirect("~/Home.aspx");
+            else
+                Response.Redirect("~/Home.aspx");
 
         }
 
