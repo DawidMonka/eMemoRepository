@@ -1,4 +1,4 @@
-<%@  Page Title="Moje wyniki" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MyScores.aspx.cs" Inherits="eMemo.MyScores" %>
+﻿<%@  Page Title="Moje wyniki" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MyScores.aspx.cs" Inherits="eMemo.MyScores" %>
 
 
     <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
@@ -10,7 +10,7 @@
             <div class="row">
                
                 <div class="col-md-4">
-                    <label class="control-label">Wielkosc planszy</label>
+                    <label class="control-label">Wielkość planszy</label>
                     <asp:DropDownList id="Wielkosc"       
                         runat="server">
 
@@ -57,9 +57,9 @@
                 </asp:TemplateField>
                 <asp:BoundField DataField="gracz" HeaderText="gracz"/>
                 <asp:BoundField DataField="dataRozgrywa" HeaderText="data" DataFormatString="{0:d}" />
-                <asp:BoundField DataField="lPkt" HeaderText="liczba punktow" />
+                <asp:BoundField DataField="lPkt" HeaderText="liczba punktów" />
                 <asp:BoundField DataField="czasTrwania" HeaderText="czas" />
-                <asp:BoundField DataField="lRuchow" HeaderText="liczba ruchow" />
+                <asp:BoundField DataField="lRuchow" HeaderText="liczba ruchów" />
                 
                 
             </Columns>
