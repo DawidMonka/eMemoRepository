@@ -4,6 +4,7 @@ using MemoGameSite;
 using System.Data.SqlClient;
 using System.Configuration;
 using MemoGameSite.Helpers;
+using eMemo.Helpers;
 
 namespace UnitTestLoginSite
 {
@@ -16,9 +17,10 @@ namespace UnitTestLoginSite
         [TestMethod]
         public void MustPassWhenPasswordIsCorrect()
         {
-            string nick = "Admin";
-            string pass = "admin";
+            NickField nickField = new NickField();
             PassField passField = new PassField();
+            string nick = DataBaseConstants.AdminNick;
+            string pass = passField.getPasswordFromDataBase(DataBaseConstants.AdminNick);
             bool result = false;
 
             result = passField.isPasswordCorrect(nick, pass);

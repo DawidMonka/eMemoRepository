@@ -12,8 +12,8 @@ namespace eMemo.Tests
     [TestClass]
     public class TestResults
     {
-        
-        private const string nick = "Tomek";
+        //nick użytkownika testowego, klasa TestUser
+        private const string nick = TestUser.Nick;
         
         //private const string nickFail = "b";
         Results results = new Results();
