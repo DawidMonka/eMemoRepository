@@ -5,15 +5,19 @@ using System.Data.SqlClient;
 using System.Configuration;
 using MemoGameSite.Helpers;
 using eMemo.Helpers;
+using eMemo.Tests;
 
 namespace UnitTestLoginSite
 {
+    /// <summary>
+    /// Klasa testująca metody klasy Helpers.PassField
+    /// </summary>
     [TestClass]
     public class TestPassField
-    {    
-        /// <summary>
-        /// Klasa testująca metody klasy Helpers.PassField
-        /// </summary>
+    {
+        private const string emptyPass = "";
+        private const string wrongPass = "$$$%$";
+
         [TestMethod]
         public void MustPassWhenPasswordIsCorrect()
         {
@@ -31,8 +35,8 @@ namespace UnitTestLoginSite
         [TestMethod]
         public void MustPassWhenPasswordIsNotCorrect()
         {
-            string nick = "Admin";
-            string pass = "$$$$$";
+            string nick = TestUser.Nick;
+            string pass = wrongPass;
             PassField passField = new PassField();
             bool result = false;
 
@@ -42,21 +46,21 @@ namespace UnitTestLoginSite
         }
 
         [TestMethod]
-        public void MustPassWhenNoPass()
+        public void MustPassWhenPassIsEmpty()
         {
-            string emptyPass = "";
+            string emptyPassword = emptyPass;
             PassField passField = new PassField();
             bool result = false;
 
-            result = passField.isEmpty(emptyPass);
+            result = passField.isEmpty(emptyPassword);
 
             Assert.IsTrue(result);
         }
 
         [TestMethod]
-        public void MustFailWhenNoPass()
+        public void MustFailWhenPassIsNotEmpty()
         {
-            string pass = "pass01";
+            string pass = TestUser.Password;
             PassField passField = new PassField();
             bool result = false;
 
@@ -64,5 +68,33 @@ namespace UnitTestLoginSite
 
             Assert.IsFalse(result);
         }
+
+        [TestMethod]
+        public void MustPassWhenPassIsConfirmedCorrectly()
+        {
+            string pass = TestUser.Password;
+            string conf = TestUser.Password;
+            PassField passField = new PassField();
+            var result = false;
+
+            result = (bool) passField.isPasswordCorrectlyConfirmed(pass, conf);
+
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public void MustPassWhenPassIsNotConfirmedCorrectly()
+        {
+            string pass = TestUser.Password;
+            string conf = wrongPass;
+            PassField passField = new PassField();
+            bool result = true;
+
+            result = (bool) passField.isPasswordCorrectlyConfirmed(pass, conf);
+
+            Assert.IsFalse(result);
+        }
+
+
     }
 }

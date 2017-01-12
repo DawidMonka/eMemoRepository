@@ -29,39 +29,48 @@
         }
         else
         {
-            //warunek sprawdzający czy nie przekroczono dopuszczlnej liczby znaków
-            if (registrationEntity.valueLenghtIsRight(nick.Text) && registrationEntity.valueLenghtIsRight(pass.Text))
+            //Warunek sprawdzający czy hasło zostało poprawnie potwierdzone
+            if (passField.isPasswordCorrectlyConfirmed(pass.Text, conf.Text))
             {
-                setRegistrationEntityValues(registrationEntity);
-
-                //warunek sprawdzający, czy wszystkie pola sa zapełnione i czy prawidłowy jest format daty
-                if (registrationEntity.noValueIsEmpty() && !registrationEntity.WrongDateFormat)
+                //warunek sprawdzający czy nie przekroczono dopuszczlnej liczby znaków
+                if (registrationEntity.valueLenghtIsRight(nick.Text) && registrationEntity.valueLenghtIsRight(pass.Text))
                 {
-                    registrationEntity.insertNewUser(dataBaseConnection);
-                    //ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Pomyślnie zarejestrowano nowego użytkownika.');", true);
-                    Response.Redirect("Login.aspx");
-                    //Response.Write("Pomyślnie zarejestrowano nowego użytkownika.");
+                    setRegistrationEntityValues(registrationEntity);
 
-                }
-                else
-                {
-                    //komunikat gdy format daty jest niepoprawny
-                    if (registrationEntity.WrongDateFormat)
+                    //warunek sprawdzający, czy wszystkie pola sa zapełnione i czy prawidłowy jest format daty
+                    if (registrationEntity.noValueIsEmpty() && !registrationEntity.WrongDateFormat)
                     {
-                        ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Niepoprawny format daty urodzenia. Spróbuj ponownie.');", true);
-                        registrationEntity.WrongDateFormat = false;
-                        datepicker.Text = String.Empty;
+                        registrationEntity.insertNewUser(dataBaseConnection);
+                        //ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Pomyślnie zarejestrowano nowego użytkownika.');", true);
+                        Response.Redirect("Login.aspx");
+                        //Response.Write("Pomyślnie zarejestrowano nowego użytkownika.");
                     }
                     else
                     {
-                        //Response.Write("Bład rejestracji użytkownika. Spróbuj jeszcze raz.");
-                        ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('W celu zarejestrowania należy wypełnić wszystkie wymagane pola.');", true);
+                        //komunikat gdy format daty jest niepoprawny
+                        if (registrationEntity.WrongDateFormat)
+                        {
+                            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Niepoprawny format daty urodzenia. Spróbuj ponownie.');", true);
+                            registrationEntity.WrongDateFormat = false;
+                            datepicker.Text = String.Empty;
+                        }
+                        else
+                        {
+                            //Response.Write("Bład rejestracji użytkownika. Spróbuj jeszcze raz.");
+                            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('W celu zarejestrowania należy wypełnić wszystkie wymagane pola.');", true);
+                        }
                     }
                 }
+                //jesli nieprawidłowa dlugość nicku lub hasła
+                else
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Nieprawidłowa długość nicku lub hasła. Dopuszczalna długość 5-15 znaków.');", true);
+                }
             }
+            //jeśli hasło nie zostało poprawnie powierdzone
             else
             {
-                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Nieprawidłowa długość nicku lub hasła. Dopuszczalna długość 5-15 znaków.');", true);
+                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Hasło nie zostało poprawnie wprowadzone lub potwierdzone.');", true);
             }
         }
     }

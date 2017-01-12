@@ -61,5 +61,10 @@ namespace MemoGameSite.Helpers
         {
             return password.Equals(String.Empty);
         }
+
+        public bool isPasswordCorrectlyConfirmed(string pass, string conf)
+        {
+            return pass.Equals(conf);
+        }
     }
 }

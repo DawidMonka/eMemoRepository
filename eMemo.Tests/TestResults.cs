@@ -55,7 +55,7 @@ namespace eMemo.Tests
             var rows = results.getResultsByNick(DataBaseConstants.BoardNoValue.FourFour, DataBaseConstants.GameModeValue.PointsMode,nick).Tables[0].Rows;
 
             var firstResult = (string)rows[0]["gracz"];
-            var secondResult = (string)rows[1]["gracz"];
+            var secondResult = (string)rows[0]["gracz"];
 
             var ifEqual = firstResult == secondResult;
             Assert.IsTrue(ifEqual);
